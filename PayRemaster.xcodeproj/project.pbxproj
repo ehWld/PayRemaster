@@ -10,9 +10,12 @@
 		A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40AA68827F32A4500754E4F /* AppDelegate.swift */; };
 		A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40AA68A27F32A4500754E4F /* SceneDelegate.swift */; };
 		A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */; };
-		A40AA69027F32A4500754E4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40AA68E27F32A4500754E4F /* Main.storyboard */; };
-		A40AA69227F32A4600754E4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40AA69127F32A4600754E4F /* Assets.xcassets */; };
+		A40AA69027F32A4500754E4F /* MoneyHistories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40AA68E27F32A4500754E4F /* MoneyHistories.storyboard */; };
+		A40AA69227F32A4600754E4F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40AA69127F32A4600754E4F /* Colors.xcassets */; };
 		A40AA69527F32A4600754E4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */; };
+		A4D8DFAC27F4402D00C4D030 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D8DFAB27F4402D00C4D030 /* Images.xcassets */; };
+		A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */; };
+		A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		A40AA68827F32A4500754E4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A40AA68A27F32A4500754E4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoriesViewController.swift; sourceTree = "<group>"; };
-		A40AA68F27F32A4500754E4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A40AA69127F32A4600754E4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A40AA68F27F32A4500754E4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MoneyHistories.storyboard; sourceTree = "<group>"; };
+		A40AA69127F32A4600754E4F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A40AA69427F32A4600754E4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A40AA69627F32A4600754E4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4D8DFAB27F4402D00C4D030 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A4D8DFCF27F44A3700C4D030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,58 @@
 		A40AA68727F32A4500754E4F /* PayRemaster */ = {
 			isa = PBXGroup;
 			children = (
-				A40AA68827F32A4500754E4F /* AppDelegate.swift */,
-				A40AA68A27F32A4500754E4F /* SceneDelegate.swift */,
-				A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */,
-				A40AA68E27F32A4500754E4F /* Main.storyboard */,
-				A40AA69127F32A4600754E4F /* Assets.xcassets */,
-				A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */,
-				A40AA69627F32A4600754E4F /* Info.plist */,
+				A4D23EFB27F43D180069C6F9 /* Common */,
+				A4D23EFC27F43D340069C6F9 /* Resources */,
+				A4D23EFE27F43D600069C6F9 /* MoneyHistory */,
 			);
 			path = PayRemaster;
+			sourceTree = "<group>";
+		};
+		A4D23EFB27F43D180069C6F9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFCF27F44A3700C4D030 /* Info.plist */,
+				A40AA68827F32A4500754E4F /* AppDelegate.swift */,
+				A40AA68A27F32A4500754E4F /* SceneDelegate.swift */,
+				A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */,
+				A4D23EFD27F43D4F0069C6F9 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A4D23EFC27F43D340069C6F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A40AA69127F32A4600754E4F /* Colors.xcassets */,
+				A4D8DFAB27F4402D00C4D030 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4D23EFD27F43D4F0069C6F9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A4D23EFE27F43D600069C6F9 /* MoneyHistory */ = {
+			isa = PBXGroup;
+			children = (
+				A4D23EFF27F43D780069C6F9 /* View */,
+			);
+			path = MoneyHistory;
+			sourceTree = "<group>";
+		};
+		A4D23EFF27F43D780069C6F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A40AA68E27F32A4500754E4F /* MoneyHistories.storyboard */,
+				A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */,
+				A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40AA69527F32A4600754E4F /* LaunchScreen.storyboard in Resources */,
-				A40AA69227F32A4600754E4F /* Assets.xcassets in Resources */,
-				A40AA69027F32A4500754E4F /* Main.storyboard in Resources */,
+				A4D8DFAC27F4402D00C4D030 /* Images.xcassets in Resources */,
+				A40AA69227F32A4600754E4F /* Colors.xcassets in Resources */,
+				A40AA69027F32A4500754E4F /* MoneyHistories.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,18 +191,20 @@
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
 				A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */,
 				A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */,
+				A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */,
+				A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A40AA68E27F32A4500754E4F /* Main.storyboard */ = {
+		A40AA68E27F32A4500754E4F /* MoneyHistories.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A40AA68F27F32A4500754E4F /* Base */,
 			);
-			name = Main.storyboard;
+			name = MoneyHistories.storyboard;
 			sourceTree = "<group>";
 		};
 		A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */ = {
@@ -291,10 +343,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S24Z36WLLR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PayRemaster/Info.plist;
+				INFOPLIST_FILE = PayRemaster/Common/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MoneyHistories;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -321,10 +373,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S24Z36WLLR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PayRemaster/Info.plist;
+				INFOPLIST_FILE = PayRemaster/Common/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = MoneyHistories;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
