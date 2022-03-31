@@ -13,11 +13,24 @@ class MoneyHistoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    private func configureUI() {
         self.title = "내역"
+        tableView.dataSource = self
+        
+        let style = NSMutableParagraphStyle()
+        style.firstLineHeadIndent = 10
+        navigationController?.navigationBar.largeTitleTextAttributes?[.paragraphStyle] = style
+    }
+    
+    private func configureTableView() {
         tableView.dataSource = self
     }
 
 }
+
+// MARK: - Extension: UITableView
 
 extension MoneyHistoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +38,7 @@ extension MoneyHistoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoneyHistoryCell", for: indexPath) as? MoneyHistoryCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MoneyHistoryCell.identifier, for: indexPath) as? MoneyHistoryCell else { return UITableViewCell() }
         return cell
     }
     

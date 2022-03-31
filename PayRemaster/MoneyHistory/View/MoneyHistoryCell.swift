@@ -8,6 +8,8 @@
 import UIKit
 
 class MoneyHistoryCell: UITableViewCell {
+    
+    static let identifier = "MoneyHistoryCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

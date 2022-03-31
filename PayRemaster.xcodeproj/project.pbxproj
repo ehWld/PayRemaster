@@ -16,6 +16,9 @@
 		A4D8DFAC27F4402D00C4D030 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D8DFAB27F4402D00C4D030 /* Images.xcassets */; };
 		A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */; };
 		A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */; };
+		A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */; };
+		A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD627F54B0F00C4D030 /* MoneyHistoryViewModel.swift */; };
+		A4D8DFDC27F54CC000C4D030 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFDB27F54CC000C4D030 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A4D8DFCF27F44A3700C4D030 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryCell.swift; sourceTree = "<group>"; };
+		A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryDataSource.swift; sourceTree = "<group>"; };
+		A4D8DFD627F54B0F00C4D030 /* MoneyHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryViewModel.swift; sourceTree = "<group>"; };
+		A4D8DFDB27F54CC000C4D030 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +68,8 @@
 		A40AA68727F32A4500754E4F /* PayRemaster */ = {
 			isa = PBXGroup;
 			children = (
-				A4D23EFB27F43D180069C6F9 /* Common */,
 				A4D23EFC27F43D340069C6F9 /* Resources */,
+				A4D23EFB27F43D180069C6F9 /* Common */,
 				A4D23EFE27F43D600069C6F9 /* MoneyHistory */,
 			);
 			path = PayRemaster;
@@ -77,6 +83,7 @@
 				A40AA68A27F32A4500754E4F /* SceneDelegate.swift */,
 				A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */,
 				A4D23EFD27F43D4F0069C6F9 /* Extension */,
+				A4D8DFDA27F54BE600C4D030 /* HTTP */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -101,7 +108,10 @@
 		A4D23EFE27F43D600069C6F9 /* MoneyHistory */ = {
 			isa = PBXGroup;
 			children = (
+				A4D8DFD927F54BC600C4D030 /* API */,
+				A4D8DFD827F54BBF00C4D030 /* Model */,
 				A4D23EFF27F43D780069C6F9 /* View */,
+				A4D8DFD527F54AFE00C4D030 /* ViewModel */,
 			);
 			path = MoneyHistory;
 			sourceTree = "<group>";
@@ -112,8 +122,39 @@
 				A40AA68E27F32A4500754E4F /* MoneyHistories.storyboard */,
 				A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */,
 				A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */,
+				A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A4D8DFD527F54AFE00C4D030 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFD627F54B0F00C4D030 /* MoneyHistoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A4D8DFD827F54BBF00C4D030 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFDB27F54CC000C4D030 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4D8DFD927F54BC600C4D030 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A4D8DFDA27F54BE600C4D030 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTTP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */,
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
+				A4D8DFDC27F54CC000C4D030 /* Transaction.swift in Sources */,
+				A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */,
 				A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */,
 				A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */,
 				A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */,
