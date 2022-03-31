@@ -9,6 +9,12 @@ import UIKit
 
 class MoneyHistoryCell: UITableViewCell {
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var amounLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
+    
     static let identifier = "MoneyHistoryCell"
 
     override func awakeFromNib() {
@@ -16,10 +22,9 @@ class MoneyHistoryCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(with transaction: Transaction) {
+        nicknameLabel.text = transaction.user.nickname
+        // amounLabel.text = String(transaction.amount)
     }
 
 }

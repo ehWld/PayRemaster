@@ -40,6 +40,19 @@ class Transaction: Decodable {
     }
 }
 
+extension Transaction: Hashable {
+    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.date == rhs.date &&
+        lhs.amount == rhs.amount &&
+        lhs.user == rhs.user
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
+}
+
 class User: Decodable {
     let profileImage: String
     let id: String
@@ -53,11 +66,32 @@ class User: Decodable {
         case name = "user_name"
     }
     
+    init() {
+        profileImage = ""
+        id = "ididididididididi"
+        nickname = "닉네임닉네임닉네임"
+        name = "이름이름이름이름"
+    }
+    
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         profileImage = try values.decode(String.self, forKey: .profileImage)
         id = try values.decode(String.self, forKey: .id)
         nickname = try values.decode(String.self, forKey: .nickname)
         name = try values.decode(String.self, forKey: .name)
+    }
+    
+}
+
+extension User: Hashable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.profileImage == rhs.profileImage &&
+            lhs.id == rhs.id &&
+            lhs.nickname == rhs.nickname &&
+            lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

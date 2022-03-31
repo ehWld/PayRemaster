@@ -95,6 +95,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="amounLabel" destination="Gpt-m8-Yyi" id="dOg-Dh-dQR"/>
+                                            <outlet property="dateLabel" destination="Gw6-40-5z5" id="uOQ-NH-iDI"/>
+                                            <outlet property="nicknameLabel" destination="5LE-B7-3Lc" id="SwM-Qe-nfL"/>
+                                            <outlet property="profileImageView" destination="Xef-V8-Mpb" id="ifN-3P-dY5"/>
+                                            <outlet property="typeLabel" destination="KEu-fm-Olt" id="Uom-Ly-c1V"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
