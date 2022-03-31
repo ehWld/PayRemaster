@@ -15,7 +15,7 @@ class Transaction: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id = "transaction_id"
-        case date = "transaction_at"ß
+        case date = "transaction_at"
         case amount = ""
         case user
     }
