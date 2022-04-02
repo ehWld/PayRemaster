@@ -23,8 +23,8 @@ class MoneyHistoryDataSource: UITableViewDiffableDataSource<MoneyHistoryDataSour
     
     func apply(_ newItems: [Item], animated: Bool = false) {
         var snapshot = Snapshot()
-        // FIXME: Item 별로 Section을 만들어서 append 해야할듯.. PaymentHistoryViewModel의 applyData() 참고
-        snapshot.appendSections([Section(year: 3, month: 31)])
+        // FIXME: Item 별로 날짜 내림차순 정렬 후, Section을 만들어서 append 해야할듯.. PaymentHistoryViewModel의 applyData() 참고
+        snapshot.appendSections([3])
         snapshot.appendItems(newItems)
         apply(snapshot, animatingDifferences: animated)
     }

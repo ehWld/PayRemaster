@@ -14,9 +14,5 @@ class MoneyHistoryViewModel {
 
 extension MoneyHistoryViewModel {
     typealias Item = Transaction
-    
-    struct Section: Hashable {
-        let year: Int
-        let month: Int
-    }
+    typealias Section = Int
 }

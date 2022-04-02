@@ -20,7 +20,7 @@ class MoneyHistoriesViewController: UIViewController {
         configureUI()
         
         for _ in 0..<20 {
-            let new = Transaction(id: "", date: Date(), amount: 100000, user: User())
+            let new = Transaction(id: "", date: Date(), amount: 100000)
             mockItems.append(new)
         }
         dataSource.apply(mockItems)
@@ -32,10 +32,25 @@ class MoneyHistoriesViewController: UIViewController {
         let style = NSMutableParagraphStyle()
         style.firstLineHeadIndent = 10
         navigationController?.navigationBar.largeTitleTextAttributes?[.paragraphStyle] = style
+        
+        tableView.register(MoneyHistoryHeaderView.nib, forHeaderFooterViewReuseIdentifier: MoneyHistoryHeaderView.identifier)
+        tableView.delegate = self
     }
     
 }
 
-// MARK: - Extension: UITableView
+// MARK: - Extension: UITableViewDelegate
 
+extension MoneyHistoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MoneyHistoryHeaderView.identifier) as! MoneyHistoryHeaderView
+        let section = dataSource.snapshot().sectionIdentifiers[section]
+        headerView.dateLabel.text = String(section)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 48
+    }
+}
 

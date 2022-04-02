@@ -9,89 +9,49 @@ import Foundation
 
 class Transaction: Decodable {
     let id: String
+    let title: String
+    let subtitle: String
     let date: Date
     let amount: Int
-    let user: User
+    let imageUrl: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "transaction_id"
         case date = "transaction_at"
-        case amount = ""
-        case user
+        case imageUrl = "image_url"
+        case id, title, subtitle, amount
     }
     
-    init(id: String, date: Date, amount: Int, user: User) {
+    init(id: String, date: Date, amount: Int) {
         self.id = id
         self.date = date
         self.amount = amount
-        self.user = user
+        self.title = "테스트"
+        self.subtitle = "test"
+        self.imageUrl = ""
     }
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
+        title = try values.decode(String.self, forKey: .title)
+        subtitle = try values.decode(String.self, forKey: .subtitle)
         amount = try values.decode(Int.self, forKey: .amount)
-        user = try values.decode(User.self, forKey: .user)
         date = try values.decode(Date.self, forKey: .date)
-        
-        //        if let decoder = decoder as? JSONDecoder {
-        //            decoder.dataDecodingStrategy = .iso8601
-        //        }
+        imageUrl = try values.decode(String.self, forKey: .imageUrl)
     }
 }
 
 extension Transaction: Hashable {
     static func == (lhs: Transaction, rhs: Transaction) -> Bool {
         return lhs.id == rhs.id &&
+        lhs.title == rhs.title &&
+        lhs.subtitle == rhs.subtitle &&
         lhs.date == rhs.date &&
         lhs.amount == rhs.amount &&
-        lhs.user == rhs.user
+        lhs.imageUrl == rhs.imageUrl
     }
     
     func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
-    }
-}
-
-class User: Decodable {
-    let profileImage: String
-    let id: String
-    let nickname: String
-    let name: String
-    
-    enum CodingKeys: String, CodingKey {
-        case profileImage = "user_profile_image"
-        case id = "user_id"
-        case nickname = "user_nick_name"
-        case name = "user_name"
-    }
-    
-    init() {
-        profileImage = ""
-        id = "ididididididididi"
-        nickname = "닉네임닉네임닉네임"
-        name = "이름이름이름이름"
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        profileImage = try values.decode(String.self, forKey: .profileImage)
-        id = try values.decode(String.self, forKey: .id)
-        nickname = try values.decode(String.self, forKey: .nickname)
-        name = try values.decode(String.self, forKey: .name)
-    }
-    
-}
-
-extension User: Hashable {
-    static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.profileImage == rhs.profileImage &&
-            lhs.id == rhs.id &&
-            lhs.nickname == rhs.nickname &&
-            lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
     }
 }

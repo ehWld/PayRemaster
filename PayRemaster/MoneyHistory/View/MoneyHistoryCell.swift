@@ -23,7 +23,7 @@ class MoneyHistoryCell: UITableViewCell {
     }
 
     func configure(with transaction: Transaction) {
-        nicknameLabel.text = transaction.user.nickname
+        nicknameLabel.text = transaction.title
         // amounLabel.text = String(transaction.amount)
     }
 
