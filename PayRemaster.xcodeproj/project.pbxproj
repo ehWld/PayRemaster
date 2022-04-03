@@ -24,6 +24,13 @@
 		A4D8DFE227F59B0800C4D030 /* MoneyHistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D8DFE127F59B0800C4D030 /* MoneyHistoryHeaderView.xib */; };
 		A4D8DFE427F82F2E00C4D030 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFE327F82F2E00C4D030 /* HTTPClient.swift */; };
 		A4D8DFEC27F8372500C4D030 /* HTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFEB27F8372500C4D030 /* HTTPClientTest.swift */; };
+		A4D8DFF327F84F9800C4D030 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFF227F84F9800C4D030 /* API.swift */; };
+		A4D8DFF727F8511900C4D030 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFF627F8511900C4D030 /* URL+Extension.swift */; };
+		A4D8DFF927F851A800C4D030 /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFF827F851A800C4D030 /* APITest.swift */; };
+		A4D8DFFB27F8532D00C4D030 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFA27F8532D00C4D030 /* AccessToken.swift */; };
+		A4D8DFFE27F8C6D600C4D030 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */; };
+		A4D8E00027F8D2C900C4D030 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFF27F8D2C900C4D030 /* Filter.swift */; };
+		A4D8E00227F975E500C4D030 /* KeyChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00127F975E500C4D030 /* KeyChainTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,13 @@
 		A4D8DFE327F82F2E00C4D030 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		A4D8DFE927F8372500C4D030 /* PayRemasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayRemasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D8DFEB27F8372500C4D030 /* HTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTest.swift; sourceTree = "<group>"; };
+		A4D8DFF227F84F9800C4D030 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A4D8DFF627F8511900C4D030 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		A4D8DFF827F851A800C4D030 /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
+		A4D8DFFA27F8532D00C4D030 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		A4D8DFFF27F8D2C900C4D030 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		A4D8E00127F975E500C4D030 /* KeyChainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,7 @@
 				A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */,
 				A4D23EFD27F43D4F0069C6F9 /* Extension */,
 				A4D8DFDA27F54BE600C4D030 /* HTTP */,
+				A4D8DFFC27F8C6BF00C4D030 /* KeyChain */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -132,6 +147,7 @@
 			children = (
 				A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */,
 				A4D8DFDD27F5956500C4D030 /* Date+Extension.swift */,
+				A4D8DFF627F8511900C4D030 /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -172,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				A4D8DFDB27F54CC000C4D030 /* Transaction.swift */,
+				A4D8DFFA27F8532D00C4D030 /* AccessToken.swift */,
+				A4D8DFFF27F8D2C900C4D030 /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +197,7 @@
 		A4D8DFD927F54BC600C4D030 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A4D8DFF227F84F9800C4D030 /* API.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -195,8 +214,18 @@
 			isa = PBXGroup;
 			children = (
 				A4D8DFEB27F8372500C4D030 /* HTTPClientTest.swift */,
+				A4D8DFF827F851A800C4D030 /* APITest.swift */,
+				A4D8E00127F975E500C4D030 /* KeyChainTest.swift */,
 			);
 			path = PayRemasterTests;
+			sourceTree = "<group>";
+		};
+		A4D8DFFC27F8C6BF00C4D030 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,15 +332,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */,
+				A4D8DFFB27F8532D00C4D030 /* AccessToken.swift in Sources */,
 				A4D8DFE027F59AF900C4D030 /* MoneyHistoryHeaderView.swift in Sources */,
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
 				A4D8DFDC27F54CC000C4D030 /* Transaction.swift in Sources */,
 				A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */,
 				A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */,
+				A4D8DFFE27F8C6D600C4D030 /* KeyChain.swift in Sources */,
 				A4D8DFE427F82F2E00C4D030 /* HTTPClient.swift in Sources */,
 				A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */,
+				A4D8DFF727F8511900C4D030 /* URL+Extension.swift in Sources */,
 				A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */,
 				A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */,
+				A4D8E00027F8D2C900C4D030 /* Filter.swift in Sources */,
+				A4D8DFF327F84F9800C4D030 /* API.swift in Sources */,
 				A4D8DFDE27F5956500C4D030 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D8DFF927F851A800C4D030 /* APITest.swift in Sources */,
 				A4D8DFEC27F8372500C4D030 /* HTTPClientTest.swift in Sources */,
+				A4D8E00227F975E500C4D030 /* KeyChainTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
