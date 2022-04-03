@@ -22,7 +22,7 @@ class MoneyHistoryCell: UITableViewCell {
         // Initialization code
     }
 
-    func configure(with transaction: Transaction) {
+    func configure(with transaction: History) {
         nicknameLabel.text = transaction.title
         // amounLabel.text = String(transaction.amount)
     }

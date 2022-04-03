@@ -69,7 +69,7 @@ class KeyChain {
         ]
         
         let status = SecItemDelete(query)
-        guard status == errSecSuccess else {
+        guard status == errSecSuccess || status == errSecItemNotFound else {
             throw KeyChain.Errors(status)
         }
     }

@@ -7,9 +7,13 @@
 
 import Foundation
 
-struct AccessToken: Codable {
+struct AccessToken: Codable, Equatable {
     let expiredDate: Date
     let value: String
+    
+    var isValid: Bool {
+        return expiredDate > Date()
+    }
     
     enum CodingKeys: String, CodingKey {
         case expiredDate = "expires_at"

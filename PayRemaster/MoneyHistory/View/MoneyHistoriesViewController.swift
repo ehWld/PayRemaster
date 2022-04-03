@@ -13,14 +13,14 @@ class MoneyHistoriesViewController: UIViewController {
     
     private lazy var dataSource = MoneyHistoryDataSource(tableView: self.tableView)
     
-    var mockItems: [Transaction] = []
+    var mockItems: [History] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         
         for _ in 0..<20 {
-            let new = Transaction(id: "", date: Date(), amount: 100000)
+            let new = History(id: "", date: Date(), amount: 100000)
             mockItems.append(new)
         }
         dataSource.apply(mockItems)

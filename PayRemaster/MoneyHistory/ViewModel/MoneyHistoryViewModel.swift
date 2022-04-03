@@ -13,6 +13,6 @@ class MoneyHistoryViewModel {
 }
 
 extension MoneyHistoryViewModel {
-    typealias Item = Transaction
+    typealias Item = History
     typealias Section = Int
 }

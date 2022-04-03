@@ -1,5 +1,5 @@
 //
-//  Transaction.swift
+//  History.swift
 //  PayRemaster
 //
 //  Created by heizel.nut on 2022/03/31.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Transaction: Decodable {
+class History: Decodable {
     let id: String
     let title: String
     let subtitle: String
@@ -41,8 +41,8 @@ class Transaction: Decodable {
     }
 }
 
-extension Transaction: Hashable {
-    static func == (lhs: Transaction, rhs: Transaction) -> Bool {
+extension History: Hashable {
+    static func == (lhs: History, rhs: History) -> Bool {
         return lhs.id == rhs.id &&
         lhs.title == rhs.title &&
         lhs.subtitle == rhs.subtitle &&

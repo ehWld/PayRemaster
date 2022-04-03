@@ -12,9 +12,30 @@ import Combine
 class APITest: XCTestCase {
     
     var cancellables: Set<AnyCancellable> = []
-
-    func testExample() throws {
+    
+    func test_getTokenFromKeyChain_success() throws {
         let expectation = XCTestExpectation()
+        let date = Date()
+        let testToken = AccessToken("TestToken", expiredDate: date)
+        try KeyChain.standard.set(testToken, forKey: "MoneyHistoryToken")
+        
+        API.accessToken()
+            .sink { completion in
+                guard case .failure(let error) = completion else { return }
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            } receiveValue: { token in
+                XCTAssertEqual(token, testToken)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        wait(for: [expectation], timeout: 10)
+    }
+
+    func test_getTokenFromServer_success() throws {
+        let expectation = XCTestExpectation()
+        try KeyChain.standard.delete(forKey: "MoneyHistoryToken")
+        
         API.accessToken()
             .sink { completion in
                 guard case .failure(let error) = completion else { return }
@@ -22,10 +43,29 @@ class APITest: XCTestCase {
                 expectation.fulfill()
             } receiveValue: { token in
                 XCTAssertTrue(true, token.value)
+                print(token)
+                print(Date())
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 100)
     }
 
+    
+    func test_histories_success() {
+        let expectation = XCTestExpectation()
+        
+        API.histories()
+            .sink { completion in
+                guard case .failure(let error) = completion else { return }
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            } receiveValue: { histories in
+                print(histories)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 10)
+    }
 }

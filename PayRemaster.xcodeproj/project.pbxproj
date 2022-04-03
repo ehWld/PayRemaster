@@ -18,7 +18,7 @@
 		A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */; };
 		A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */; };
 		A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFD627F54B0F00C4D030 /* MoneyHistoryViewModel.swift */; };
-		A4D8DFDC27F54CC000C4D030 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFDB27F54CC000C4D030 /* Transaction.swift */; };
+		A4D8DFDC27F54CC000C4D030 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFDB27F54CC000C4D030 /* History.swift */; };
 		A4D8DFDE27F5956500C4D030 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFDD27F5956500C4D030 /* Date+Extension.swift */; };
 		A4D8DFE027F59AF900C4D030 /* MoneyHistoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFDF27F59AF900C4D030 /* MoneyHistoryHeaderView.swift */; };
 		A4D8DFE227F59B0800C4D030 /* MoneyHistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D8DFE127F59B0800C4D030 /* MoneyHistoryHeaderView.xib */; };
@@ -31,6 +31,7 @@
 		A4D8DFFE27F8C6D600C4D030 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */; };
 		A4D8E00027F8D2C900C4D030 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFF27F8D2C900C4D030 /* Filter.swift */; };
 		A4D8E00227F975E500C4D030 /* KeyChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00127F975E500C4D030 /* KeyChainTest.swift */; };
+		A4D8E00427F99A5000C4D030 /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,7 @@
 		A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryCell.swift; sourceTree = "<group>"; };
 		A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryDataSource.swift; sourceTree = "<group>"; };
 		A4D8DFD627F54B0F00C4D030 /* MoneyHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryViewModel.swift; sourceTree = "<group>"; };
-		A4D8DFDB27F54CC000C4D030 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		A4D8DFDB27F54CC000C4D030 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		A4D8DFDD27F5956500C4D030 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		A4D8DFDF27F59AF900C4D030 /* MoneyHistoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyHistoryHeaderView.swift; sourceTree = "<group>"; };
 		A4D8DFE127F59B0800C4D030 /* MoneyHistoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoneyHistoryHeaderView.xib; sourceTree = "<group>"; };
@@ -71,6 +72,7 @@
 		A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		A4D8DFFF27F8D2C900C4D030 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A4D8E00127F975E500C4D030 /* KeyChainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTest.swift; sourceTree = "<group>"; };
+		A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +189,8 @@
 		A4D8DFD827F54BBF00C4D030 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A4D8DFDB27F54CC000C4D030 /* Transaction.swift */,
+				A4D8DFDB27F54CC000C4D030 /* History.swift */,
+				A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */,
 				A4D8DFFA27F8532D00C4D030 /* AccessToken.swift */,
 				A4D8DFFF27F8D2C900C4D030 /* Filter.swift */,
 			);
@@ -333,9 +336,10 @@
 			files = (
 				A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */,
 				A4D8DFFB27F8532D00C4D030 /* AccessToken.swift in Sources */,
+				A4D8E00427F99A5000C4D030 /* HistoryDetail.swift in Sources */,
 				A4D8DFE027F59AF900C4D030 /* MoneyHistoryHeaderView.swift in Sources */,
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
-				A4D8DFDC27F54CC000C4D030 /* Transaction.swift in Sources */,
+				A4D8DFDC27F54CC000C4D030 /* History.swift in Sources */,
 				A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */,
 				A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */,
 				A4D8DFFE27F8C6D600C4D030 /* KeyChain.swift in Sources */,
