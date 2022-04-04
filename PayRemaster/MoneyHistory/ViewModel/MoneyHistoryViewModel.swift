@@ -9,10 +9,7 @@ import Foundation
 import Combine
 
 class MoneyHistoryViewModel {
-    
+    typealias Item = History
+    typealias Section = Int 
 }
 
-extension MoneyHistoryViewModel {
-    typealias Item = History
-    typealias Section = Int
-}

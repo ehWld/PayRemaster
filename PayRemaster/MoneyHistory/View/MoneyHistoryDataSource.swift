@@ -8,6 +8,7 @@
 import UIKit
 
 class MoneyHistoryDataSource: UITableViewDiffableDataSource<MoneyHistoryDataSource.Section, MoneyHistoryDataSource.Item> {
+    
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
     typealias Section = MoneyHistoryViewModel.Section
     typealias Item = MoneyHistoryViewModel.Item

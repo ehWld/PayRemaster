@@ -32,6 +32,8 @@
 		A4D8E00027F8D2C900C4D030 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8DFFF27F8D2C900C4D030 /* Filter.swift */; };
 		A4D8E00227F975E500C4D030 /* KeyChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00127F975E500C4D030 /* KeyChainTest.swift */; };
 		A4D8E00427F99A5000C4D030 /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */; };
+		A4D8E02E27FA18F100C4D030 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E02D27FA18F100C4D030 /* FilterView.swift */; };
+		A4D8E03527FA2FEA00C4D030 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		A4D8DFFF27F8D2C900C4D030 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A4D8E00127F975E500C4D030 /* KeyChainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTest.swift; sourceTree = "<group>"; };
 		A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail.swift; sourceTree = "<group>"; };
+		A4D8E02D27FA18F100C4D030 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +175,8 @@
 				A40AA68E27F32A4500754E4F /* MoneyHistories.storyboard */,
 				A40AA68C27F32A4500754E4F /* MoneyHistoriesViewController.swift */,
 				A4D8DFD327F54AAD00C4D030 /* MoneyHistoryDataSource.swift */,
-				A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */,
-				A4D8DFDF27F59AF900C4D030 /* MoneyHistoryHeaderView.swift */,
-				A4D8DFE127F59B0800C4D030 /* MoneyHistoryHeaderView.xib */,
+				A4D8E02B27FA18C400C4D030 /* Cell */,
+				A4D8E02C27FA18DD00C4D030 /* CustomView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +232,25 @@
 				A4D8DFFD27F8C6D600C4D030 /* KeyChain.swift */,
 			);
 			path = KeyChain;
+			sourceTree = "<group>";
+		};
+		A4D8E02B27FA18C400C4D030 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8DFD127F44E8200C4D030 /* MoneyHistoryCell.swift */,
+				A4D8DFDF27F59AF900C4D030 /* MoneyHistoryHeaderView.swift */,
+				A4D8DFE127F59B0800C4D030 /* MoneyHistoryHeaderView.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A4D8E02C27FA18DD00C4D030 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8E02D27FA18F100C4D030 /* FilterView.swift */,
+				A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,10 +356,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D8E03527FA2FEA00C4D030 /* FilterCell.swift in Sources */,
 				A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */,
 				A4D8DFFB27F8532D00C4D030 /* AccessToken.swift in Sources */,
 				A4D8E00427F99A5000C4D030 /* HistoryDetail.swift in Sources */,
 				A4D8DFE027F59AF900C4D030 /* MoneyHistoryHeaderView.swift in Sources */,
+				A4D8E02E27FA18F100C4D030 /* FilterView.swift in Sources */,
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
 				A4D8DFDC27F54CC000C4D030 /* History.swift in Sources */,
 				A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */,
