@@ -18,10 +18,15 @@ class MoneyHistoryCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.cancelImage()
     }
 
     func configure(with item: History) {
+        // profileImageView.setImage(with: item.imageUrl)
         nicknameLabel.text = "\(item.title)(\(item.subtitle))"
         dateLabel.text = item.date.formattedString("hh:dd")
         // FIXME: - 돈 표기법 그걸로

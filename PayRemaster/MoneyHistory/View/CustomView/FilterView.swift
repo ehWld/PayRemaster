@@ -11,20 +11,24 @@ import Combine
 class FilterView: UIView {
 
     // MARK: - Subviews
-    var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: FilterCell.identifier)
         return collectionView
     }()
     
-    var expandButton: UIButton = {
+        lazy var expandButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "arrow_down"), for: .normal)
         button.setImage(UIImage(named: "arrow_up"), for: .selected)
         button.tintColor = .grey990
         button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(expandButtonDidTap(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -36,6 +40,14 @@ class FilterView: UIView {
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 0
+        return layout
+    }()
+    
+    private var verticalLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 3
         return layout
     }()
     
@@ -69,7 +81,6 @@ class FilterView: UIView {
             expandButton.topAnchor.constraint(equalTo: self.topAnchor),
             expandButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-        expandButton.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         
         configureCollectionView()
     }
@@ -83,17 +94,16 @@ class FilterView: UIView {
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             collectionView.trailingAnchor.constraint(equalTo: expandButton.leadingAnchor)
         ])
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(FilterCell.self, forCellWithReuseIdentifier: FilterCell.identifier)
         collectionView.collectionViewLayout = horizontalLayout
     }
     
-    @objc private func buttonDidTap(_ sender: UIButton) {
-        if sender.isSelected {
+    @objc private func expandButtonDidTap(_ sender: UIButton) {
+        if sender.isSelected { // 닫기
             sender.isSelected = false
-        } else {
+            collectionView.collectionViewLayout = horizontalLayout
+        } else { // 펼치기
             sender.isSelected = true
+            collectionView.collectionViewLayout = verticalLayout
         }
     }
     

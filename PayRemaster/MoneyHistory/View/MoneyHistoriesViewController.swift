@@ -84,5 +84,14 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
             filterTopConstraint.constant = 0
         }
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.height
+        
+        guard offsetY > contentHeight - height else { return }
+        
+    }
 }
 

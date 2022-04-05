@@ -35,6 +35,9 @@
 		A4D8E02E27FA18F100C4D030 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E02D27FA18F100C4D030 /* FilterView.swift */; };
 		A4D8E03527FA2FEA00C4D030 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */; };
 		A4D8E03827FAC44100C4D030 /* Combine+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */; };
+		A4D8E03B27FC754D00C4D030 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03A27FC754D00C4D030 /* ImageCache.swift */; };
+		A4D8E03D27FC758400C4D030 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03C27FC758400C4D030 /* UIImage+Extension.swift */; };
+		A4D8E03F27FC7A7000C4D030 /* CacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03E27FC7A7000C4D030 /* CacheType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		A4D8E02D27FA18F100C4D030 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extension.swift"; sourceTree = "<group>"; };
+		A4D8E03A27FC754D00C4D030 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		A4D8E03C27FC758400C4D030 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		A4D8E03E27FC7A7000C4D030 /* CacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,8 +141,9 @@
 				A40AA68A27F32A4500754E4F /* SceneDelegate.swift */,
 				A40AA69327F32A4600754E4F /* LaunchScreen.storyboard */,
 				A4D23EFD27F43D4F0069C6F9 /* Extension */,
-				A4D8DFDA27F54BE600C4D030 /* HTTP */,
 				A4D8DFFC27F8C6BF00C4D030 /* KeyChain */,
+				A4D8DFDA27F54BE600C4D030 /* HTTP */,
+				A4D8E03927FC753C00C4D030 /* Cache */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 				A4D8DFDD27F5956500C4D030 /* Date+Extension.swift */,
 				A4D8DFF627F8511900C4D030 /* URL+Extension.swift */,
 				A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */,
+				A4D8E03C27FC758400C4D030 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -254,6 +262,15 @@
 				A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		A4D8E03927FC753C00C4D030 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A4D8E03E27FC7A7000C4D030 /* CacheType.swift */,
+				A4D8E03A27FC754D00C4D030 /* ImageCache.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,11 +385,14 @@
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,
 				A4D8DFDC27F54CC000C4D030 /* History.swift in Sources */,
 				A4D8DFD727F54B0F00C4D030 /* MoneyHistoryViewModel.swift in Sources */,
+				A4D8E03D27FC758400C4D030 /* UIImage+Extension.swift in Sources */,
 				A40AA68927F32A4500754E4F /* AppDelegate.swift in Sources */,
 				A4D8DFFE27F8C6D600C4D030 /* KeyChain.swift in Sources */,
 				A4D8DFE427F82F2E00C4D030 /* HTTPClient.swift in Sources */,
+				A4D8E03B27FC754D00C4D030 /* ImageCache.swift in Sources */,
 				A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */,
 				A4D8DFF727F8511900C4D030 /* URL+Extension.swift in Sources */,
+				A4D8E03F27FC7A7000C4D030 /* CacheType.swift in Sources */,
 				A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */,
 				A4D8E03827FAC44100C4D030 /* Combine+Extension.swift in Sources */,
 				A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */,
