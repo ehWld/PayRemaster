@@ -90,11 +90,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmx-Rn-pZi" customClass="FilterView" customModule="PayRemaster" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmx-Rn-pZi" customClass="FilterView" customModule="PayRemaster" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="414" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="EiX-eK-JRi"/>
+                                    <constraint firstAttribute="height" constant="72" id="EiX-eK-JRi"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -126,9 +126,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GKp-pA-L5J" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="eZv-a0-cia">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrow_back" largeTitles="YES" backIndicatorTransitionMaskImage="arrow_back" id="eZv-a0-cia">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="grey990"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="grey990"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                             <color key="textColor" name="high_emphasis"/>
@@ -145,12 +149,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_back" width="24" height="24"/>
         <image name="empty" width="81" height="68"/>
         <namedColor name="background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="blue">
             <color red="0.0" green="0.55299997329711914" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey990">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="high_emphasis">
             <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

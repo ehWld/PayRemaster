@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Money History Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MoneyHistoryDetail" id="Y6W-OH-hqX" customClass="MoneyHistoryDetailViewController" customModule="PayRemaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-LN-ZNv">
+                                <rect key="frame" x="169" y="100" width="76.5" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역 종류" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umd-SI-2qV">
+                                        <rect key="frame" x="12" y="6" width="52.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="high_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Umd-SI-2qV" firstAttribute="leading" secondItem="jpq-LN-ZNv" secondAttribute="leading" constant="12" id="C0g-EA-MAp"/>
+                                    <constraint firstAttribute="height" constant="32" id="C2b-R1-ST7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Umd-SI-2qV" secondAttribute="trailing" constant="12" id="Vao-I9-p0f"/>
+                                    <constraint firstItem="Umd-SI-2qV" firstAttribute="top" secondItem="jpq-LN-ZNv" secondAttribute="top" constant="6" id="lRB-C1-mLe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Umd-SI-2qV" secondAttribute="bottom" constant="6" id="m1l-Mf-XVa"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="pui_grey300"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역 타이틀" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uH9-eQ-kZz">
+                                <rect key="frame" x="172.5" y="142" width="69" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" name="high_emphasis"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액 타이틀" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF5-pZ-t4y">
+                                <rect key="frame" x="172.5" y="188" width="69" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="high_emphasis"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,000,000원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8w-m2-BYN">
+                                <rect key="frame" x="116" y="209" width="182" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                <color key="textColor" name="high_emphasis"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022.4.4(월) 03:51" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uvu-HH-MjW">
+                                <rect key="frame" x="147" y="250.5" width="120.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="medium_emphasis"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3x-Q5-04f">
+                                <rect key="frame" x="24" y="741" width="366" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sD-3j-Zvb">
+                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="medium_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="7,290,000원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxS-vs-rv2">
+                                        <rect key="frame" x="24.5" y="0.0" width="341.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" name="high_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Wt-Kx-ucd">
+                                <rect key="frame" x="16" y="778" width="382" height="60"/>
+                                <color key="backgroundColor" name="yellow"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4L4-TT-EUS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="확인">
+                                    <color key="titleColor" name="black"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmButtonPushed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6QD-JN-68W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="uH9-eQ-kZz" firstAttribute="top" secondItem="jpq-LN-ZNv" secondAttribute="bottom" constant="10" id="08V-GA-HBV"/>
+                            <constraint firstItem="jpq-LN-ZNv" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="0wE-6O-1TB"/>
+                            <constraint firstItem="fF5-pZ-t4y" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1tL-4h-nPK"/>
+                            <constraint firstItem="8Wt-Kx-ucd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="3lC-l4-FRJ"/>
+                            <constraint firstItem="jpq-LN-ZNv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="56" id="Aap-Yu-OOz"/>
+                            <constraint firstItem="Uvu-HH-MjW" firstAttribute="top" secondItem="w8w-m2-BYN" secondAttribute="bottom" constant="3" id="LGK-6l-BxP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Wt-Kx-ucd" secondAttribute="trailing" constant="16" id="LiH-fF-a2u"/>
+                            <constraint firstItem="w8w-m2-BYN" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="UvA-U2-Hqd"/>
+                            <constraint firstItem="L3x-Q5-04f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="bnX-UR-iuo"/>
+                            <constraint firstItem="w8w-m2-BYN" firstAttribute="top" secondItem="fF5-pZ-t4y" secondAttribute="bottom" constant="3" id="fEh-9Y-JnY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8Wt-Kx-ucd" secondAttribute="bottom" constant="24" id="hEl-fR-X3g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="L3x-Q5-04f" secondAttribute="trailing" constant="24" id="jAg-nZ-JTd"/>
+                            <constraint firstItem="Uvu-HH-MjW" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="qDq-IO-SBc"/>
+                            <constraint firstItem="fF5-pZ-t4y" firstAttribute="top" secondItem="uH9-eQ-kZz" secondAttribute="bottom" constant="28" id="wax-c1-uBx"/>
+                            <constraint firstItem="uH9-eQ-kZz" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="xQO-CA-6DF"/>
+                            <constraint firstItem="8Wt-Kx-ucd" firstAttribute="top" secondItem="L3x-Q5-04f" secondAttribute="bottom" constant="20" id="z1I-qo-5Gr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="w8w-m2-BYN" id="rvz-PM-ZP5"/>
+                        <outlet property="amountTitleLabel" destination="fF5-pZ-t4y" id="jpg-zr-HCB"/>
+                        <outlet property="balanceLabel" destination="FxS-vs-rv2" id="cz5-Pu-njM"/>
+                        <outlet property="confirmButton" destination="8Wt-Kx-ucd" id="7pz-Ng-Cmp"/>
+                        <outlet property="dateLabel" destination="Uvu-HH-MjW" id="7T3-6t-4AF"/>
+                        <outlet property="titleLabel" destination="uH9-eQ-kZz" id="g9L-Yd-vnd"/>
+                        <outlet property="typeLabel" destination="Umd-SI-2qV" id="jDw-qh-PUs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black">
+            <color red="0.086000002920627594" green="0.097999997437000275" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="high_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="medium_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="0.47999998927116394" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="pui_grey300">
+            <color red="0.81176470588235294" green="0.83921568627450982" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellow">
+            <color red="1" green="0.92156862745098034" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

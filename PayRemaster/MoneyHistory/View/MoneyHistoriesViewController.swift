@@ -29,6 +29,9 @@ class MoneyHistoriesViewController: UIViewController {
     
     private func configureUI() {
         self.title = "내역"
+        navigationItem.backButtonTitle = ""
+        navigationItem.backBarButtonItem = UIBarButtonItem()
+        navigationItem.backBarButtonItem?.tintColor = .grey990
         
         let style = NSMutableParagraphStyle()
         style.firstLineHeadIndent = 10
@@ -66,6 +69,11 @@ class MoneyHistoriesViewController: UIViewController {
 // MARK: - Extension: UITableViewDelegate
 
 extension MoneyHistoriesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = MoneyHistoryDetailViewController.instantiate()
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MoneyHistoryHeaderView.identifier) as! MoneyHistoryHeaderView
         let sectionTitle = dataSource.snapshot().sectionIdentifiers[section]
@@ -91,7 +99,7 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
         let height = scrollView.frame.height
         
         guard offsetY > contentHeight - height else { return }
-        
+        // FIXME: - load more
     }
 }
 
