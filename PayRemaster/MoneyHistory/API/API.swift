@@ -37,11 +37,11 @@ class API {
             .eraseToAnyPublisher()
     }
     
-    static func histories(category: String? = nil, month: Int? = nil, page: Int? = nil) -> AnyPublisher<[History], Error> {
+    static func histories(filter: String? = nil, month: Int? = nil, page: Int? = nil) -> AnyPublisher<[History], Error> {
         let urlString = "\(URL.Host.moneyHistory)/money/histories"
         var parameters: [String: String] = [:]
         
-        if let category = category {
+        if let category = filter {
             parameters["category"] = category
         }
         if let month = month {

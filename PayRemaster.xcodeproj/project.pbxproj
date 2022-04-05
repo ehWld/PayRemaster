@@ -34,6 +34,7 @@
 		A4D8E00427F99A5000C4D030 /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */; };
 		A4D8E02E27FA18F100C4D030 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E02D27FA18F100C4D030 /* FilterView.swift */; };
 		A4D8E03527FA2FEA00C4D030 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */; };
+		A4D8E03827FAC44100C4D030 /* Combine+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		A4D8E00327F99A5000C4D030 /* HistoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail.swift; sourceTree = "<group>"; };
 		A4D8E02D27FA18F100C4D030 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				A4D8DFAD27F440B200C4D030 /* UIColor+Extension.swift */,
 				A4D8DFDD27F5956500C4D030 /* Date+Extension.swift */,
 				A4D8DFF627F8511900C4D030 /* URL+Extension.swift */,
+				A4D8E03727FAC44100C4D030 /* Combine+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				A40AA68B27F32A4500754E4F /* SceneDelegate.swift in Sources */,
 				A4D8DFF727F8511900C4D030 /* URL+Extension.swift in Sources */,
 				A4D8DFAE27F440B200C4D030 /* UIColor+Extension.swift in Sources */,
+				A4D8E03827FAC44100C4D030 /* Combine+Extension.swift in Sources */,
 				A4D8DFD227F44E8200C4D030 /* MoneyHistoryCell.swift in Sources */,
 				A4D8E00027F8D2C900C4D030 /* Filter.swift in Sources */,
 				A4D8DFF327F84F9800C4D030 /* API.swift in Sources */,

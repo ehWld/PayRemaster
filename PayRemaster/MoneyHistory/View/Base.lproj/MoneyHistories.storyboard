@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-nU-J87">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoneyHistoryCell" id="xnM-X9-Bm6" customClass="MoneyHistoryCell" customModule="PayRemaster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="32" width="414" height="72"/>
@@ -56,31 +55,17 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gz0-ls-Zcm">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw6-40-5z5">
                                                             <rect key="frame" x="0.0" y="22" width="314" height="18"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw6-40-5z5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="271.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                    <color key="textColor" name="medium_emphasis"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="받기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEu-fm-Olt">
-                                                                    <rect key="frame" x="291.5" y="0.0" width="22.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                    <color key="textColor" name="medium_emphasis"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" name="medium_emphasis"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="Gz0-ls-Zcm" secondAttribute="bottom" id="8DT-Dj-Cn1"/>
                                                         <constraint firstItem="aJ3-3r-9rz" firstAttribute="top" secondItem="xUv-PH-Zws" secondAttribute="top" id="MPU-5g-Lpw"/>
                                                         <constraint firstItem="aJ3-3r-9rz" firstAttribute="leading" secondItem="xUv-PH-Zws" secondAttribute="leading" id="YJK-ka-M0b"/>
-                                                        <constraint firstItem="Gz0-ls-Zcm" firstAttribute="leading" secondItem="xUv-PH-Zws" secondAttribute="leading" id="q5D-E2-LOr"/>
                                                         <constraint firstAttribute="trailing" secondItem="aJ3-3r-9rz" secondAttribute="trailing" id="wdg-h8-XtF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Gz0-ls-Zcm" secondAttribute="trailing" id="wje-0H-juE"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -101,7 +86,6 @@
                                             <outlet property="dateLabel" destination="Gw6-40-5z5" id="uOQ-NH-iDI"/>
                                             <outlet property="nicknameLabel" destination="5LE-B7-3Lc" id="SwM-Qe-nfL"/>
                                             <outlet property="profileImageView" destination="Xef-V8-Mpb" id="ifN-3P-dY5"/>
-                                            <outlet property="typeLabel" destination="KEu-fm-Olt" id="Uom-Ly-c1V"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -174,8 +158,5 @@
         <namedColor name="medium_emphasis">
             <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="0.47999998927116394" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

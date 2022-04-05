@@ -40,11 +40,15 @@ class HTTPClient {
         
         return URLSession.shared.dataTaskPublisher(for: urlReqest)
             .tryMap { (data, response) -> Data in
+                //FIXME: - Error Handling
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw URLError(.badServerResponse)
                 }
-                print(httpResponse.statusCode)
-                print(data)
+                guard httpResponse.statusCode == 200 else {
+                    print(httpResponse.statusCode)
+                    print(String(data: data, encoding: .utf8))
+                    throw URLError(.badServerResponse)
+                }
                 return data
             }
             .decode(type: ResponseData.self, decoder: decoder)

@@ -59,9 +59,28 @@ class APITest: XCTestCase {
             .sink { completion in
                 guard case .failure(let error) = completion else { return }
                 XCTFail(error.localizedDescription)
+                print(error)
                 expectation.fulfill()
             } receiveValue: { histories in
                 print(histories)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 10)
+    }
+    
+    func test_historyDetail_success() {
+        let expectation = XCTestExpectation()
+        
+        API.historyDetail(of: "6270C6DB-FE1E-4BC5-B89B-C1EDDA316A89")
+            .sink { completion in
+                guard case .failure(let error) = completion else { return }
+                XCTFail(error.localizedDescription)
+                print(error)
+                expectation.fulfill()
+            } receiveValue: { histories in
+                print(histories.amount, histories.title)
                 expectation.fulfill()
             }
             .store(in: &cancellables)

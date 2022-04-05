@@ -39,7 +39,7 @@ class FilterView: UIView {
         return layout
     }()
     
-    private var filters: [Filter] = [Filter(type: "", title: "전체"), Filter(type: "", title: "송금"), Filter(type: "", title: "페이머니카드"), Filter(type: "", title: "도대체언제자냐고"), Filter(type: "", title: "전체"), Filter(type: "", title: "송금"), Filter(type: "", title: "페이머니카드"), Filter(type: "", title: "도대체언제자냐고")]
+    private var filters: [Filter] = []
     private var selectedIndex: IndexPath = .init(item: 0, section: 0)
     
     override init(frame: CGRect) {
@@ -52,9 +52,10 @@ class FilterView: UIView {
         configureUI()
     }
     
-    func configure(with filters: [Filter]) {
+    func configure(with filters: [Filter], selected: Int = 0) {
         self.filters = filters
         collectionView.reloadData()
+        self.collectionView.selectItem(at: IndexPath(item: selected, section: 0), animated: true, scrollPosition: [])
     }
     
     private func configureUI() {
@@ -70,6 +71,10 @@ class FilterView: UIView {
         ])
         expandButton.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         
+        configureCollectionView()
+    }
+    
+    private func configureCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
         NSLayoutConstraint.activate([

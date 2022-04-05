@@ -13,7 +13,6 @@ class MoneyHistoryCell: UITableViewCell {
     @IBOutlet weak var nicknameLabel: UILabel!
     @IBOutlet weak var amounLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
     
     static let identifier = "MoneyHistoryCell"
 
@@ -22,9 +21,11 @@ class MoneyHistoryCell: UITableViewCell {
         // Initialization code
     }
 
-    func configure(with transaction: History) {
-        nicknameLabel.text = transaction.title
-        // amounLabel.text = String(transaction.amount)
+    func configure(with item: History) {
+        nicknameLabel.text = "\(item.title)(\(item.subtitle))"
+        dateLabel.text = item.date.formattedString("hh:dd")
+        // FIXME: - 돈 표기법 그걸로
+        amounLabel.text = "\(item.amount)원"
     }
 
 }

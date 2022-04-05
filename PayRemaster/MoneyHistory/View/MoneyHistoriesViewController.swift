@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MoneyHistoriesViewController: UIViewController {
 
@@ -16,18 +17,14 @@ class MoneyHistoriesViewController: UIViewController {
     
     private lazy var dataSource = MoneyHistoryDataSource(tableView: self.tableView)
     
-    var mockItems: [History] = []
+    private var viewModel: MoneyHistoryViewModel = MoneyHistoryViewModel()
+    private var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
-        for _ in 0..<20 {
-            let new = History(id: "", date: Date(), amount: 100000)
-            mockItems.append(new)
-        }
-        dataSource.apply(mockItems)
-        
+        bind()
+        viewModel.action(.viewDidLoad)
     }
     
     private func configureUI() {
@@ -42,6 +39,28 @@ class MoneyHistoriesViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: filterView.minHeight, left: 0, bottom: 0, right: 0)
     }
     
+    private func bind() {
+        viewModel.$histories
+            .sink { [weak self] histories in
+                print(histories.count)
+                self?.dataSource.apply(histories)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$filters
+            .sink { [weak self] filters in
+                self?.filterView.configure(with: filters)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$error
+            .compactMap { $0 }
+            .sink { [weak self] error in
+                print(error)
+            }
+            .store(in: &cancellables)
+    }
+    
 }
 
 // MARK: - Extension: UITableViewDelegate
@@ -49,8 +68,8 @@ class MoneyHistoriesViewController: UIViewController {
 extension MoneyHistoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MoneyHistoryHeaderView.identifier) as! MoneyHistoryHeaderView
-        let section = dataSource.snapshot().sectionIdentifiers[section]
-        headerView.dateLabel.text = String(section)
+        let sectionTitle = dataSource.snapshot().sectionIdentifiers[section]
+        headerView.configure(with: sectionTitle)
         return headerView
     }
     

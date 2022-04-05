@@ -18,8 +18,8 @@ class MoneyHistoryHeaderView: UITableViewHeaderFooterView {
         super.awakeFromNib()
     }
     
-    func configure(with date: Date) {
-        // 날짜 포맷팅
+    func configure(with title: String) {
+        dateLabel.text = title
     }
 
 }

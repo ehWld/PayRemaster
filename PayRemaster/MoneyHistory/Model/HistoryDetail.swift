@@ -8,7 +8,7 @@
 import Foundation
 
 class HistoryDetail: Decodable {
-    let amount: Int
+    let amount: Int?
     let amountTitle: String
     let id: String
     let imageUrl: String
@@ -17,7 +17,6 @@ class HistoryDetail: Decodable {
     let date: Date
     let type: String
     let balance: Int
-    var typeTitle: String?
     
     enum CodingKeys: String, CodingKey {
         case amountTitle = "amount_title"
@@ -29,7 +28,7 @@ class HistoryDetail: Decodable {
     
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        amount = try values.decode(Int.self, forKey: .amount)
+        amount = (try values.decode(Int.self, forKey: .amount)) 
         amountTitle = try values.decode(String.self, forKey: .amountTitle)
         id = try values.decode(String.self, forKey: .id)
         imageUrl = try values.decode(String.self, forKey: .imageUrl)

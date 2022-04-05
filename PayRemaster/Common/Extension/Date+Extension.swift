@@ -17,6 +17,23 @@ extension Date {
     }
     
     var day: Int {
-        return Calendar.current.component(.year, from: self)
+        return Calendar.current.component(.day, from: self)
+    }
+    
+    var hour: Int {
+        return Calendar.current.component(.hour, from: self)
+    }
+    
+    var minute: Int {
+        return Calendar.current.component(.minute, from: self)
+    }
+}
+
+extension Date {
+    func formattedString(_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "ko")
+        return formatter.string(from: self)
     }
 }

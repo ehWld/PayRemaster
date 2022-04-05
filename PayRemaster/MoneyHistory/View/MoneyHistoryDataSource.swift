@@ -15,7 +15,6 @@ class MoneyHistoryDataSource: UITableViewDiffableDataSource<MoneyHistoryDataSour
     
     init(tableView: UITableView) {
         super.init(tableView: tableView) { tableView, indexPath, item in
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: MoneyHistoryCell.identifier, for: indexPath) as! MoneyHistoryCell
             cell.configure(with: item)
             return cell
@@ -24,9 +23,15 @@ class MoneyHistoryDataSource: UITableViewDiffableDataSource<MoneyHistoryDataSour
     
     func apply(_ newItems: [Item], animated: Bool = false) {
         var snapshot = Snapshot()
-        // FIXME: Item 별로 날짜 내림차순 정렬 후, Section을 만들어서 append 해야할듯.. PaymentHistoryViewModel의 applyData() 참고
-        snapshot.appendSections([3])
-        snapshot.appendItems(newItems)
+        let itemDictionary = Dictionary(grouping: newItems) { $0.date.day }
+        for key in itemDictionary.keys.sorted(by: >) {
+            guard let items = itemDictionary[key],
+                  let section = items.first?.date.formattedString("dd일 (E)") else {
+                      continue
+                  }
+            snapshot.appendSections([section])
+            snapshot.appendItems(items, toSection: section)
+        }
         apply(snapshot, animatingDifferences: animated)
     }
     
