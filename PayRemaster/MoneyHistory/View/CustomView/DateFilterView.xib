@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DateFilterView" customModule="PayRemaster" customModuleProvider="target">
+            <connections>
+                <outlet property="dateLabel" destination="8Aj-um-zdQ" id="Vb8-Va-Un8"/>
+                <outlet property="leftButton" destination="tgm-Ti-2mw" id="BFH-jM-EHN"/>
+                <outlet property="rightButton" destination="Qwr-pf-Ac3" id="cIj-1d-KzH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="52"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-iX-8bH">
+                    <rect key="frame" x="16" y="11" width="310" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgm-Ti-2mw">
+                            <rect key="frame" x="0.0" y="0.0" width="62" height="30"/>
+                            <color key="tintColor" name="high_emphasis"/>
+                            <state key="normal" image="arrow_left"/>
+                            <connections>
+                                <action selector="leftButtonPushed:" destination="-1" eventType="touchUpInside" id="xc9-8x-hOt"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Aj-um-zdQ">
+                            <rect key="frame" x="62" y="0.0" width="186" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="high_emphasis"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwr-pf-Ac3">
+                            <rect key="frame" x="248" y="0.0" width="62" height="30"/>
+                            <color key="tintColor" name="high_emphasis"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="arrow_right"/>
+                            <connections>
+                                <action selector="rightButtonPushed:" destination="-1" eventType="touchUpInside" id="NRZ-eC-bFY"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="tgm-Ti-2mw" firstAttribute="width" secondItem="H8U-iX-8bH" secondAttribute="width" multiplier="0.2" id="1sX-lQ-RYb"/>
+                        <constraint firstItem="Qwr-pf-Ac3" firstAttribute="width" secondItem="tgm-Ti-2mw" secondAttribute="width" id="um8-WP-ERN"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="inverse_grey800"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="H8U-iX-8bH" secondAttribute="bottom" constant="11" id="Y0q-px-Rfc"/>
+                <constraint firstItem="H8U-iX-8bH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aub-kk-oex"/>
+                <constraint firstItem="H8U-iX-8bH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="ctb-bs-4Jf"/>
+                <constraint firstAttribute="trailing" secondItem="H8U-iX-8bH" secondAttribute="trailing" constant="16" id="vpn-iW-nhy"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="24"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="131.8840579710145" y="82.366071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow_left" width="24" height="24"/>
+        <image name="arrow_right" width="24" height="24"/>
+        <namedColor name="high_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="inverse_grey800">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

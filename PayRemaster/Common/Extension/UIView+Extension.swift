@@ -7,10 +7,6 @@
 
 import UIKit
 
-extension CALayer {
-
-}
-
 extension UIView {
     
     @IBInspectable var borderWidth: CGFloat {

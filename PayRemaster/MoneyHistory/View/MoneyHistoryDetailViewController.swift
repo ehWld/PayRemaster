@@ -8,6 +8,9 @@
 import UIKit
 
 class MoneyHistoryDetailViewController: UIViewController {
+    
+    // MARK: - Subviews
+    
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var amountTitleLabel: UILabel!
@@ -18,21 +21,18 @@ class MoneyHistoryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureUI()
     }
     
+    // MARK: - Setup
+    
     private func configureUI() {
-        //confirmButton.clipsToBounds = true
-        
         title = "상세내역"
         navigationItem.largeTitleDisplayMode = .never
-        // navigationItem.title = "상세내역"
-//        navigationController?.navigationBar.topItem?.title = ""
-//        navigationController?.navigationBar.tintColor = .grey990
     }
 
     @IBAction func confirmButtonPushed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }
 

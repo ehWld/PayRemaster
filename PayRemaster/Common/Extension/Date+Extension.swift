@@ -37,3 +37,10 @@ extension Date {
         return formatter.string(from: self)
     }
 }
+
+extension Date {
+    func advanced(by component: Calendar.Component, value: Int) -> Date {
+        let newDate = Calendar.current.date(byAdding: component, value: value, to: self)
+        return newDate ?? self
+    }
+}

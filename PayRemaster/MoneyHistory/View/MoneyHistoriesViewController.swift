@@ -10,8 +10,13 @@ import Combine
 
 class MoneyHistoriesViewController: UIViewController {
 
+    // MARK: - Subviews
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterView: FilterView!
+    @IBOutlet weak var dateFilterView: DateFilterView!
+    
+    // MARK: - Properties
     
     @IBOutlet weak var filterTopConstraint: NSLayoutConstraint!
     
@@ -26,6 +31,13 @@ class MoneyHistoriesViewController: UIViewController {
         bind()
         viewModel.action(.viewDidLoad)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("")
+    }
+    
+    // MARK: - Setup
     
     private func configureUI() {
         self.title = "내역"
@@ -99,7 +111,7 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
         let height = scrollView.frame.height
         
         guard offsetY > contentHeight - height else { return }
-        // FIXME: - load more
+        // FIXME: - hey viewmodel load more please
     }
 }
 
