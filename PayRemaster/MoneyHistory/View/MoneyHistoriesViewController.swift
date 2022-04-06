@@ -82,7 +82,9 @@ class MoneyHistoriesViewController: UIViewController {
 
 extension MoneyHistoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailViewController = MoneyHistoryDetailViewController.instantiate()
+        viewModel.action(.didSelectItemAt(indexPath: indexPath))
+        guard let history = dataSource.itemIdentifier(for: indexPath) else { return }
+        let detailViewController = MoneyHistoryDetailViewController.instantiate(history, viewModel.filters)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
     

@@ -39,8 +39,8 @@ extension Date {
 }
 
 extension Date {
-    func advanced(by component: Calendar.Component, value: Int) -> Date {
+    func advanced(by component: Calendar.Component, value: Int) -> Date? {
         let newDate = Calendar.current.date(byAdding: component, value: value, to: self)
-        return newDate ?? self
+        return newDate
     }
 }

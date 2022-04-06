@@ -58,8 +58,8 @@ class API {
         .eraseToAnyPublisher()
     }
     
-    static func historyDetail(of id: String) -> AnyPublisher<HistoryDetail, Error> {
-        return accessToken().flatMap { token -> AnyPublisher<HistoryDetail, Error> in
+    static func historyDetail(of id: String) -> AnyPublisher<HistoryDetailDTO, Error> {
+        return accessToken().flatMap { token -> AnyPublisher<HistoryDetailDTO, Error> in
             let header = ["Authorization": token.value]
             let urlString = "\(URL.Host.moneyHistory)/money/detail/\(id)"
             return HTTPClient.shared.request(urlString: urlString, headers: header)
@@ -67,8 +67,8 @@ class API {
         .eraseToAnyPublisher()
     }
     
-    static func categories() -> AnyPublisher<[Filter], Error> {
-        return accessToken().flatMap { token -> AnyPublisher<[Filter], Error> in
+    static func categories() -> AnyPublisher<[HistoryType], Error> {
+        return accessToken().flatMap { token -> AnyPublisher<[HistoryType], Error> in
             let header = ["Authorization": token.value]
             let urlString = "\(URL.Host.moneyHistory)/money/categories"
             return HTTPClient.shared.request(urlString: urlString, headers: header)

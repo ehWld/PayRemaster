@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Filter: Decodable {
+struct HistoryType: Decodable {
     let type: String
     let title: String
 }

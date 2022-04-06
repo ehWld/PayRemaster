@@ -47,7 +47,7 @@ class FilterCell: UICollectionViewCell {
         configureUI()
     }
 
-    func configure(with item: Filter) {
+    func configure(with item: HistoryType) {
         titleLabel.text = item.title
         titleLabel.sizeToFit()
     }

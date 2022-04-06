@@ -21,8 +21,8 @@ class DateFilterView: UIView {
     // MARK: - Properties
     
     @Published var currentDate = Date()
-    var minDate = Date() // 2022 01
-    var maxDate = Date() // 인자로 넘겨받아
+    var minDate = Date()
+    var maxDate = Date()
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
@@ -46,13 +46,6 @@ class DateFilterView: UIView {
         bind()
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        configureNib()
-        configureUI()
-        bind()
-    }
-    
     // MARK: - Setup
     
     private func configureNib() {
@@ -62,39 +55,38 @@ class DateFilterView: UIView {
         
         contentView.frame = self.bounds
         addSubview(contentView)
-//        NSLayoutConstraint.activate([
-//            contentView.topAnchor.constraint(equalTo: self.topAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-//        ])
     }
     
     private func configureUI() {
         layer.shadowOpacity = 0.15
         layer.shadowOffset = CGSize(width: 0, height: 3)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM"
+        minDate = dateFormatter.date(from: "2022-01") ?? Date()
+        configureButtons(with: currentDate)
     }
     
     private func bind() {
         $currentDate
             .sink { [weak self] date in
-                self?.dateLabel.text = date.formattedString("YYYY년 M월")
-                self?.configureButtons()
+                self?.dateLabel.text = date.formattedString("yyyy년 M월")
+                self?.configureButtons(with: date)
             }
             .store(in: &cancellables)
     }
     
-    private func configureButtons() {
-        if isEndOfDate(currentDate, maxDate) {
+    private func configureButtons(with date: Date) {
+        if isEndOfDate(date, maxDate) {
             rightButton.isEnabled = false
         } else {
             rightButton.isEnabled = true
         }
-        
-        if isEndOfDate(minDate, currentDate) {
+
+        if isEndOfDate(minDate, date) {
             leftButton.isEnabled = false
         } else {
-            rightButton.isEnabled = true
+            leftButton.isEnabled = true
         }
     }
     
@@ -106,15 +98,11 @@ class DateFilterView: UIView {
     // MARK: - Actions
 
     @IBAction func leftButtonPushed(_ sender: Any) {
+        currentDate = currentDate.advanced(by: .month, value: -1) ?? Date()
     }
+    
     @IBAction func rightButtonPushed(_ sender: Any) {
+        currentDate = currentDate.advanced(by: .month, value: 1) ?? Date()
     }
-    //    @IBAction func leftButtonPushed(_ sender: Any) {
-//        currentDate = currentDate.advanced(by: .month, value: -1)
-//    }
-//
-//    @IBAction func rightButtonPushed(_ sender: Any) {
-//        currentDate = currentDate.advanced(by: .month, value: 1)
-//    }
-//
+
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MoneyHistoryDetailViewController: UIViewController {
     
@@ -19,9 +20,25 @@ class MoneyHistoryDetailViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
+    // MARK: - Properties
+    
+    private var viewModel: MoneyHistoryDetailViewModel!
+    private var cancellables: Set<AnyCancellable> = []
+    
+    private init?(coder: NSCoder, history: History, filters: [HistoryType]) {
+        super.init(coder: coder)
+        viewModel = MoneyHistoryDetailViewModel(history, filters)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        bind()
+        viewModel.action(.viewDidLoad)
     }
     
     // MARK: - Setup
@@ -30,14 +47,44 @@ class MoneyHistoryDetailViewController: UIViewController {
         title = "상세내역"
         navigationItem.largeTitleDisplayMode = .never
     }
+    
+    private func bind() {
+        viewModel.$historyDetail
+            .compactMap { $0 }
+            .sink { [weak self] historyDetail in
+                self?.configureUI(with: historyDetail)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$error
+            .sink { [weak self] error in
+                print(error)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func configureUI(with historyDetail: HistoryDetail) {
+        typeLabel.text = historyDetail.type.title
+        titleLabel.text = "\(historyDetail.title)(\(historyDetail.subtitle))"
+        amountTitleLabel.text = historyDetail.amountTitle
+        amountLabel.text = historyDetail.amount.wonFormatted
+        dateLabel.text = historyDetail.date.formattedString("yyyy. M. d(E) hh:mm")
+        balanceLabel.text = historyDetail.balance.wonFormatted
+    }
+    
+    // MARK: - Action
 
     @IBAction func confirmButtonPushed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }
 
+// MARK: - Instantiate
+
 extension MoneyHistoryDetailViewController {
-    static func instantiate() -> MoneyHistoryDetailViewController {
-        return UIStoryboard(name: "MoneyHistoryDetail", bundle: nil).instantiateViewController(withIdentifier: "MoneyHistoryDetail") as! MoneyHistoryDetailViewController
+    static func instantiate(_ history: History, _ filters: [HistoryType]) -> MoneyHistoryDetailViewController {
+        return UIStoryboard(name: "MoneyHistoryDetail", bundle: nil).instantiateViewController(identifier: "MoneyHistoryDetail") { coder in
+            MoneyHistoryDetailViewController(coder: coder, history: history, filters: filters)
+        }
     }
 }

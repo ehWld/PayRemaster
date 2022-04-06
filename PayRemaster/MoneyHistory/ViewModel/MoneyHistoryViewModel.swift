@@ -16,17 +16,19 @@ class MoneyHistoryViewModel {
     enum Action {
         case viewDidLoad
         case didScrollToBottom
-        case filterDidSelected(filter: Filter)
+        case didSelectItemAt(indexPath: IndexPath)
+        case filterDidSelected(filter: HistoryType)
     }
     
     // Output
     @Published var histories: [History] = []
-    @Published var filters: [Filter] = []
+    @Published var filters: [HistoryType] = []
+    @Published var historyId: String? = nil
     @Published var onRequest: Bool = false
     @Published var error: Error?
     
     // Properties
-    private var selectedFilter: Filter?
+    private var selectedFilter: HistoryType?
     private var selectedMonth: Int = Date().month
     private var currentPage: Int = 0
     private var isEndHistory: Bool = false
@@ -38,8 +40,11 @@ class MoneyHistoryViewModel {
             requestInitialData()
         case .didScrollToBottom:
             requestMoreData()
+        case .didSelectItemAt(let indexPath):
+            print(indexPath)
+            print(indexPath.row)
         case .filterDidSelected(let filter):
-            print("")
+            print(filter)
         }
     }
     

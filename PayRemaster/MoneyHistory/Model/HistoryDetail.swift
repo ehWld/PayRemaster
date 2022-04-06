@@ -2,40 +2,31 @@
 //  HistoryDetail.swift
 //  PayRemaster
 //
-//  Created by heizel.nut on 2022/04/03.
+//  Created by heizel.nut on 2022/04/06.
 //
 
 import Foundation
 
-class HistoryDetail: Decodable {
-    let amount: Int?
+class HistoryDetail {
+    let amount: Int
     let amountTitle: String
     let id: String
     let imageUrl: String
     let title: String
     let subtitle: String
     let date: Date
-    let type: String
     let balance: Int
+    let type: HistoryType
     
-    enum CodingKeys: String, CodingKey {
-        case amountTitle = "amount_title"
-        case imageUrl = "image_url"
-        case date = "transaction_at"
-        case type = "transaction_type"
-        case amount, id, title, subtitle, balance
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        amount = (try values.decode(Int.self, forKey: .amount)) 
-        amountTitle = try values.decode(String.self, forKey: .amountTitle)
-        id = try values.decode(String.self, forKey: .id)
-        imageUrl = try values.decode(String.self, forKey: .imageUrl)
-        title = try values.decode(String.self, forKey: .title)
-        subtitle = try values.decode(String.self, forKey: .subtitle)
-        date = try values.decode(Date.self, forKey: .date)
-        type = try values.decode(String.self, forKey: .type)
-        balance = try values.decode(Int.self, forKey: .balance)
+    init(_ dto: HistoryDetailDTO, _ type: HistoryType) {
+        amount = dto.amount
+        amountTitle = dto.amountTitle
+        id = dto.id
+        imageUrl = dto.imageUrl
+        title = dto.title
+        subtitle = dto.subtitle
+        date = dto.date
+        balance = dto.balance
+        self.type = type
     }
 }

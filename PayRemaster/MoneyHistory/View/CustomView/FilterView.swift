@@ -11,6 +11,7 @@ import Combine
 class FilterView: UIView {
 
     // MARK: - Subviews
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -33,6 +34,7 @@ class FilterView: UIView {
     }()
     
     // MARK: - Properties
+    
     let minHeight: CGFloat = 72
     
     private var horizontalLayout: UICollectionViewFlowLayout = {
@@ -51,7 +53,7 @@ class FilterView: UIView {
         return layout
     }()
     
-    private var filters: [Filter] = []
+    private var filters: [HistoryType] = []
     private var selectedIndex: IndexPath = .init(item: 0, section: 0)
     
     override init(frame: CGRect) {
@@ -64,7 +66,9 @@ class FilterView: UIView {
         configureUI()
     }
     
-    func configure(with filters: [Filter], selected: Int = 0) {
+    // MARK: - Setup
+    
+    func configure(with filters: [HistoryType], selected: Int = 0) {
         self.filters = filters
         collectionView.reloadData()
         self.collectionView.selectItem(at: IndexPath(item: selected, section: 0), animated: true, scrollPosition: [])
@@ -97,6 +101,8 @@ class FilterView: UIView {
         collectionView.collectionViewLayout = horizontalLayout
     }
     
+    // MARK: - Action
+    
     @objc private func expandButtonDidTap(_ sender: UIButton) {
         if sender.isSelected { // 닫기
             sender.isSelected = false
@@ -110,6 +116,7 @@ class FilterView: UIView {
 }
 
 // MARK: - CollectionViewDataSource
+
 extension FilterView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filters.count
@@ -124,6 +131,7 @@ extension FilterView: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionViewDelegate
+
 extension FilterView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let previousCell = collectionView.cellForItem(at: selectedIndex) as! FilterCell

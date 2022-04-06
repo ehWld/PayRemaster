@@ -29,8 +29,14 @@ class MoneyHistoryCell: UITableViewCell {
         // profileImageView.setImage(with: item.imageUrl)
         nicknameLabel.text = "\(item.title)(\(item.subtitle))"
         dateLabel.text = item.date.formattedString("hh:dd")
-        // FIXME: - 돈 표기법 그걸로
-        amounLabel.text = "\(item.amount)원"
+
+        if item.amount >= 0 {
+            amounLabel.text = "+" + item.amount.wonFormatted
+            amounLabel.textColor = .blue
+        } else {
+            amounLabel.text = "-" + item.amount.wonFormatted
+            amounLabel.textColor = .high_emphasis
+        }
     }
 
 }
