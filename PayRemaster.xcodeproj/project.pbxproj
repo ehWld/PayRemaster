@@ -47,6 +47,7 @@
 		A4D8E05427FDC31200C4D030 /* HistoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05327FDC31200C4D030 /* HistoryDetail.swift */; };
 		A4D8E05627FDC4A300C4D030 /* PayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05527FDC4A300C4D030 /* PayError.swift */; };
 		A4D8E05827FDC82B00C4D030 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05727FDC82B00C4D030 /* Int+Extension.swift */; };
+		A4D8E05B27FDFAF300C4D030 /* VerticalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05A27FDFAF300C4D030 /* VerticalFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		A4D8E05327FDC31200C4D030 /* HistoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetail.swift; sourceTree = "<group>"; };
 		A4D8E05527FDC4A300C4D030 /* PayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayError.swift; sourceTree = "<group>"; };
 		A4D8E05727FDC82B00C4D030 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		A4D8E05A27FDFAF300C4D030 /* VerticalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				A4D8E03327FA2FEA00C4D030 /* FilterCell.swift */,
 				A4D8E04D27FCD24F00C4D030 /* DateFilterView.swift */,
 				A4D8E04F27FCD32E00C4D030 /* DateFilterView.xib */,
+				A4D8E05A27FDFAF300C4D030 /* VerticalFlowLayout.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				A4D8DFF327F84F9800C4D030 /* API.swift in Sources */,
 				A4D8E04727FCB3A100C4D030 /* UIView+Extension.swift in Sources */,
 				A4D8DFDE27F5956500C4D030 /* Date+Extension.swift in Sources */,
+				A4D8E05B27FDFAF300C4D030 /* VerticalFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

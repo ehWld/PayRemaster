@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class FilterView: UIView {
-
+    
     // MARK: - Subviews
     
     lazy var collectionView: UICollectionView = {
@@ -23,7 +23,7 @@ class FilterView: UIView {
         return collectionView
     }()
     
-        lazy var expandButton: UIButton = {
+    lazy var expandButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "arrow_down"), for: .normal)
         button.setImage(UIImage(named: "arrow_up"), for: .selected)
@@ -34,9 +34,7 @@ class FilterView: UIView {
     }()
     
     // MARK: - Properties
-    
-    let minHeight: CGFloat = 72
-    
+
     private var horizontalLayout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -45,13 +43,14 @@ class FilterView: UIView {
         return layout
     }()
     
-    private var verticalLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 3
+    private lazy var verticalLayout: VerticalFlowLayout = {
+        let layout = VerticalFlowLayout()
+        layout.delegate = self
+        layout.itemSpacing = 8
         return layout
     }()
+    
+    private lazy var heightConstraint: NSLayoutConstraint = collectionView.heightAnchor.constraint(equalToConstant: 32)
     
     private var filters: [HistoryType] = []
     private var selectedIndex: IndexPath = .init(item: 0, section: 0)
@@ -99,6 +98,8 @@ class FilterView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: expandButton.leadingAnchor)
         ])
         collectionView.collectionViewLayout = horizontalLayout
+        
+        heightConstraint.isActive = true
     }
     
     // MARK: - Action
@@ -107,9 +108,14 @@ class FilterView: UIView {
         if sender.isSelected { // 닫기
             sender.isSelected = false
             collectionView.collectionViewLayout = horizontalLayout
+            heightConstraint.constant = 32
+            self.layoutIfNeeded()
         } else { // 펼치기
             sender.isSelected = true
             collectionView.collectionViewLayout = verticalLayout
+            let height = verticalLayout.collectionViewContentSize.height
+            heightConstraint.constant = height
+            self.layoutIfNeeded()
         }
     }
     
@@ -143,6 +149,8 @@ extension FilterView: UICollectionViewDelegate {
     }
 }
 
+// MARK: - CollectionViewLayoutDelegate
+
 extension FilterView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cell = FilterCell()
@@ -151,3 +159,10 @@ extension FilterView: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension FilterView: VerticalFlowLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, sizeForPillAtIndexPath indexPath: IndexPath) -> CGSize {
+        let cell = FilterCell()
+        cell.configure(with: filters[indexPath.item])
+        return CGSize(width: cell.intrinsicWidth, height: 32)
+    }
+}

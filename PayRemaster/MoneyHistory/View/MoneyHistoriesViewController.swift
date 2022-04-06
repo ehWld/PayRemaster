@@ -13,12 +13,12 @@ class MoneyHistoriesViewController: UIViewController {
     // MARK: - Subviews
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var filterView: FilterView!
+    var filterView: FilterView = FilterView(frame: .zero)
     @IBOutlet weak var dateFilterView: DateFilterView!
     
     // MARK: - Properties
     
-    @IBOutlet weak var filterTopConstraint: NSLayoutConstraint!
+    lazy var filterTopConstraint: NSLayoutConstraint = filterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
     
     private lazy var dataSource = MoneyHistoryDataSource(tableView: self.tableView)
     
@@ -51,7 +51,16 @@ class MoneyHistoriesViewController: UIViewController {
         
         tableView.register(MoneyHistoryHeaderView.nib, forHeaderFooterViewReuseIdentifier: MoneyHistoryHeaderView.identifier)
         tableView.delegate = self
-        tableView.contentInset = UIEdgeInsets(top: filterView.minHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 72, left: 0, bottom: 0, right: 0)
+        
+        view.addSubview(filterView)
+        filterView.translatesAutoresizingMaskIntoConstraints = false
+        filterTopConstraint = filterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        NSLayoutConstraint.activate([
+            filterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            filterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            filterTopConstraint
+        ])
     }
     
     private func bind() {

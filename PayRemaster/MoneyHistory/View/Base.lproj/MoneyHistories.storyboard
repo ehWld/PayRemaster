@@ -90,13 +90,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmx-Rn-pZi" customClass="FilterView" customModule="PayRemaster" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="72"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="EiX-eK-JRi"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydk-dK-2bw" customClass="DateFilterView" customModule="PayRemaster" customModuleProvider="target">
                                 <rect key="frame" x="24" y="790" width="366" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,20 +104,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ujg-nU-J87" secondAttribute="bottom" id="41Z-aT-ZZs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ydk-dK-2bw" secondAttribute="bottom" constant="20" id="514-Mu-xYV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ydk-dK-2bw" secondAttribute="trailing" constant="24" id="IYd-OI-h1M"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cmx-Rn-pZi" secondAttribute="trailing" id="SSA-FB-VDg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ujg-nU-J87" secondAttribute="trailing" id="boF-qS-Ha4"/>
                             <constraint firstItem="Ujg-nU-J87" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mK6-I5-22A"/>
                             <constraint firstItem="ydk-dK-2bw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="rVX-2I-pxM"/>
-                            <constraint firstItem="cmx-Rn-pZi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tpg-0W-qch"/>
-                            <constraint firstItem="cmx-Rn-pZi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wCA-11-yDX"/>
                             <constraint firstItem="Ujg-nU-J87" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zbF-of-5rM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="p2L-27-5LJ"/>
                     <connections>
                         <outlet property="dateFilterView" destination="ydk-dK-2bw" id="HBr-db-Afd"/>
-                        <outlet property="filterTopConstraint" destination="tpg-0W-qch" id="rAh-gi-D75"/>
-                        <outlet property="filterView" destination="cmx-Rn-pZi" id="K1g-kI-A6r"/>
                         <outlet property="tableView" destination="Ujg-nU-J87" id="oee-a8-uk3"/>
                     </connections>
                 </viewController>
