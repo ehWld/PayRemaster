@@ -1,5 +1,5 @@
 //
-//  FilterCell.swift
+//  TypeFilterCell.swift
 //  PayRemaster
 //
 //  Created by heizel.nut on 2022/04/04.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilterCell: UICollectionViewCell {
+class TypeFilterCell: UICollectionViewCell {
     
     static let identifier = "FilterCell"
     
@@ -56,14 +56,11 @@ class FilterCell: UICollectionViewCell {
         contentView.backgroundColor = .grey100
         layer.cornerRadius = 5
         self.clipsToBounds = true
-        // contentView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
-//            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
-//            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: widthInset),

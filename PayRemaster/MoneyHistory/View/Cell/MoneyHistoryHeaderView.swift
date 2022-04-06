@@ -21,5 +21,8 @@ class MoneyHistoryHeaderView: UITableViewHeaderFooterView {
     func configure(with title: String) {
         dateLabel.text = title
     }
-
+    
+    static func loadFromNib() -> Self {
+        return nib.instantiate(withOwner: nil, options: nil).first as! Self
+    }
 }

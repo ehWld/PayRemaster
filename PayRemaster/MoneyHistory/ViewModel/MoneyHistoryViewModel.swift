@@ -16,8 +16,8 @@ class MoneyHistoryViewModel {
     enum Action {
         case viewDidLoad
         case didScrollToBottom
-        case didSelectItemAt(indexPath: IndexPath)
         case filterDidSelected(filter: HistoryType)
+        case dateDidSelected(date: Date)
     }
     
     // Output
@@ -39,12 +39,19 @@ class MoneyHistoryViewModel {
         case .viewDidLoad:
             requestInitialData()
         case .didScrollToBottom:
-            requestMoreData()
-        case .didSelectItemAt(let indexPath):
-            print(indexPath)
-            print(indexPath.row)
+            requestData(for: currentPage + 1)
         case .filterDidSelected(let filter):
-            print(filter)
+            histories = []
+            isEndHistory = false
+            currentPage = 0
+            selectedFilter = filter
+            requestData(for: currentPage)
+        case .dateDidSelected(let date):
+            histories = []
+            isEndHistory = false
+            currentPage = 0
+            selectedMonth = date.month
+            requestData(for: currentPage)
         }
     }
     
@@ -53,8 +60,8 @@ class MoneyHistoryViewModel {
         onRequest = true
         
         API.histories(filter: nil, month: selectedMonth, page: 0)
-            .receive(on: DispatchQueue.main)
             .zip(API.categories())
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 self?.onRequest = false
                 guard case .failure(let error) = completion else { return }
@@ -67,19 +74,20 @@ class MoneyHistoryViewModel {
             .store(in: &cancellables)
     }
     
-    private func requestMoreData() {
+    private func requestData(for page: Int) {
         guard !onRequest && !isEndHistory else { return }
         onRequest = true
         
-        API.histories(filter: selectedFilter?.type, month: selectedMonth, page: currentPage + 1)
+        API.histories(filter: selectedFilter, month: selectedMonth, page: page)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 self?.onRequest = false
                 guard case .failure(let error) = completion else { return }
                 self?.error = error
             } receiveValue: { [weak self] histories in
+                guard !histories.isEmpty else { self?.isEndHistory = true; return }
                 self?.histories += histories
-                if histories.isEmpty { self?.isEndHistory = true }
+                self?.currentPage += 1
             }
             .store(in: &cancellables)
     }

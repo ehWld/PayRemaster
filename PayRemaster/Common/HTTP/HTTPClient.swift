@@ -29,11 +29,11 @@ class HTTPClient {
         self.decoder = jsonDecoder
     }
     
-    func request<ResponseData: Decodable>(urlString: String,
-                                          method: HTTPClient.Methods = .GET,
-                                          headers: [String: String]? = nil,
-                                          parameters: [String: Any]? = nil
-    ) -> AnyPublisher<ResponseData, Error> {
+    func request(urlString: String,
+                 method: HTTPClient.Methods = .GET,
+                 headers: [String: String]? = nil,
+                 parameters: [String: Any]? = nil
+    ) -> AnyPublisher<Data, Error> {
         guard let urlReqest = makeURLRequest(urlString: urlString, method: method, headers: headers, parameters: parameters) else {
             return Fail(error: Errors.badRequest).eraseToAnyPublisher()
         }
@@ -51,6 +51,15 @@ class HTTPClient {
                 }
                 return data
             }
+            .eraseToAnyPublisher()
+    }
+    
+    func request<ResponseData: Decodable>(urlString: String,
+                                          method: HTTPClient.Methods = .GET,
+                                          headers: [String: String]? = nil,
+                                          parameters: [String: Any]? = nil
+    ) -> AnyPublisher<ResponseData, Error> {
+        return request(urlString: urlString, method: method, headers: headers, parameters: parameters)
             .decode(type: ResponseData.self, decoder: decoder)
             .eraseToAnyPublisher()
     }

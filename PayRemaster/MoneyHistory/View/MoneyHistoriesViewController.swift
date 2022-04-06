@@ -12,15 +12,12 @@ class MoneyHistoriesViewController: UIViewController {
 
     // MARK: - Subviews
     
-    @IBOutlet weak var tableView: UITableView!
-    var filterView: FilterView = FilterView(frame: .zero)
+    @IBOutlet weak var filterTableView: TypeFilterTableView!
     @IBOutlet weak var dateFilterView: DateFilterView!
     
     // MARK: - Properties
-    
-    lazy var filterTopConstraint: NSLayoutConstraint = filterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-    
-    private lazy var dataSource = MoneyHistoryDataSource(tableView: self.tableView)
+
+    private lazy var dataSource = MoneyHistoryDataSource(tableView: self.filterTableView)
     
     private var viewModel: MoneyHistoryViewModel = MoneyHistoryViewModel()
     private var cancellables: Set<AnyCancellable> = []
@@ -32,11 +29,6 @@ class MoneyHistoriesViewController: UIViewController {
         viewModel.action(.viewDidLoad)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("")
-    }
-    
     // MARK: - Setup
     
     private func configureUI() {
@@ -44,26 +36,30 @@ class MoneyHistoriesViewController: UIViewController {
         navigationItem.backButtonTitle = ""
         navigationItem.backBarButtonItem = UIBarButtonItem()
         navigationItem.backBarButtonItem?.tintColor = .grey990
+        navigationController?.navigationBar.layoutMargins.left = 24
+        navigationItem.largeTitleDisplayMode = .always
+
+        filterTableView.register(MoneyHistoryHeaderView.nib, forHeaderFooterViewReuseIdentifier: MoneyHistoryHeaderView.identifier)
         
-        let style = NSMutableParagraphStyle()
-        style.firstLineHeadIndent = 10
-        navigationController?.navigationBar.largeTitleTextAttributes?[.paragraphStyle] = style
-        
-        tableView.register(MoneyHistoryHeaderView.nib, forHeaderFooterViewReuseIdentifier: MoneyHistoryHeaderView.identifier)
-        tableView.delegate = self
-        tableView.contentInset = UIEdgeInsets(top: 72, left: 0, bottom: 0, right: 0)
-        
-        view.addSubview(filterView)
-        filterView.translatesAutoresizingMaskIntoConstraints = false
-        filterTopConstraint = filterView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        NSLayoutConstraint.activate([
-            filterView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            filterView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            filterTopConstraint
-        ])
+        filterTableView.delegate = self
     }
     
     private func bind() {
+        filterTableView.filterView.$selectedType
+            .dropFirst()
+            .sink { [weak self] type in
+                self?.viewModel.action(.filterDidSelected(filter: type))
+            }
+            .store(in: &cancellables)
+        
+        dateFilterView.$currentDate
+            .dropFirst()
+            .sink { [weak self] date in
+                print("date: \(date.month)")
+                self?.viewModel.action(.dateDidSelected(date: date))
+            }
+            .store(in: &cancellables)
+        
         viewModel.$histories
             .sink { [weak self] histories in
                 print(histories.count)
@@ -73,7 +69,7 @@ class MoneyHistoriesViewController: UIViewController {
         
         viewModel.$filters
             .sink { [weak self] filters in
-                self?.filterView.configure(with: filters)
+                self?.filterTableView.configureFilter(with: filters)
             }
             .store(in: &cancellables)
         
@@ -91,7 +87,6 @@ class MoneyHistoriesViewController: UIViewController {
 
 extension MoneyHistoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.action(.didSelectItemAt(indexPath: indexPath))
         guard let history = dataSource.itemIdentifier(for: indexPath) else { return }
         let detailViewController = MoneyHistoryDetailViewController.instantiate(history, viewModel.filters)
         navigationController?.pushViewController(detailViewController, animated: true)
@@ -101,6 +96,7 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MoneyHistoryHeaderView.identifier) as! MoneyHistoryHeaderView
         let sectionTitle = dataSource.snapshot().sectionIdentifiers[section]
         headerView.configure(with: sectionTitle)
+        headerView.isUserInteractionEnabled = false
         return headerView
     }
     
@@ -108,12 +104,8 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
         return 48
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y < -filterView.frame.height {
-            filterTopConstraint.constant = -(scrollView.contentOffset.y + filterView.frame.height)
-        } else {
-            filterTopConstraint.constant = 0
-        }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -122,7 +114,7 @@ extension MoneyHistoriesViewController: UITableViewDelegate {
         let height = scrollView.frame.height
         
         guard offsetY > contentHeight - height else { return }
-        // FIXME: - hey viewmodel load more please
+        viewModel.action(.didScrollToBottom)
     }
 }
 

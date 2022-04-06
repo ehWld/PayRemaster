@@ -26,7 +26,7 @@ class MoneyHistoryCell: UITableViewCell {
     }
 
     func configure(with item: History) {
-        // profileImageView.setImage(with: item.imageUrl)
+        profileImageView.setImage(with: item.imageUrl, useCache: .memory)
         nicknameLabel.text = "\(item.title)(\(item.subtitle))"
         dateLabel.text = item.date.formattedString("hh:dd")
 
@@ -34,7 +34,7 @@ class MoneyHistoryCell: UITableViewCell {
             amounLabel.text = "+" + item.amount.wonFormatted
             amounLabel.textColor = .blue
         } else {
-            amounLabel.text = "-" + item.amount.wonFormatted
+            amounLabel.text = item.amount.wonFormatted
             amounLabel.textColor = .high_emphasis
         }
     }
