@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pay Error View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PayErrorView" id="Y6W-OH-hqX" customClass="PayErrorViewController" customModule="PayRemaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHc-m0-K1U">
+                                <rect key="frame" x="0.0" y="357.5" width="414" height="191.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network_error" translatesAutoresizingMaskIntoConstraints="NO" id="uys-4Z-fvo">
+                                        <rect key="frame" x="189" y="0.0" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="VW3-OW-qv8"/>
+                                            <constraint firstAttribute="width" constant="36" id="e68-Ya-wDb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연결상태가 좋지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaQ-B6-iuH">
+                                        <rect key="frame" x="16" y="52" width="382" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" name="high_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="조금 뒤 다시 이용해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AmU-Hb-TKd">
+                                        <rect key="frame" x="16" y="84" width="382" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="medium_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgC-rs-3Fz">
+                                        <rect key="frame" x="157.5" y="135.5" width="99.5" height="48"/>
+                                        <color key="backgroundColor" name="background"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="u3Q-ff-43R"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="다시 시도">
+                                            <color key="titleColor" name="high_emphasis"/>
+                                        </state>
+                                        <buttonConfiguration key="configuration" style="plain" title="다시 시도">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="20" bottom="0.0" trailing="20"/>
+                                            <color key="baseForegroundColor" name="high_emphasis"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="23"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="grey300"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CL9-3a-6cS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="BgC-rs-3Fz" secondAttribute="bottom" constant="8" id="4GV-vH-FgI"/>
+                                    <constraint firstItem="uys-4Z-fvo" firstAttribute="top" secondItem="sHc-m0-K1U" secondAttribute="top" id="4wS-eS-rO1"/>
+                                    <constraint firstItem="uys-4Z-fvo" firstAttribute="centerX" secondItem="sHc-m0-K1U" secondAttribute="centerX" id="66W-gQ-xiA"/>
+                                    <constraint firstAttribute="trailing" secondItem="FaQ-B6-iuH" secondAttribute="trailing" constant="16" id="DsA-lf-oqZ"/>
+                                    <constraint firstItem="FaQ-B6-iuH" firstAttribute="top" secondItem="uys-4Z-fvo" secondAttribute="bottom" constant="16" id="Egz-aV-iaL"/>
+                                    <constraint firstItem="AmU-Hb-TKd" firstAttribute="top" secondItem="FaQ-B6-iuH" secondAttribute="bottom" constant="8" id="Nkz-Am-qri"/>
+                                    <constraint firstItem="FaQ-B6-iuH" firstAttribute="leading" secondItem="sHc-m0-K1U" secondAttribute="leading" constant="16" id="Nno-u0-8f5"/>
+                                    <constraint firstAttribute="trailing" secondItem="AmU-Hb-TKd" secondAttribute="trailing" constant="16" id="QnI-rA-dZ3"/>
+                                    <constraint firstItem="BgC-rs-3Fz" firstAttribute="top" secondItem="AmU-Hb-TKd" secondAttribute="bottom" constant="32" id="dei-IR-rhn"/>
+                                    <constraint firstItem="AmU-Hb-TKd" firstAttribute="leading" secondItem="sHc-m0-K1U" secondAttribute="leading" constant="16" id="i9q-d5-IHX"/>
+                                    <constraint firstItem="BgC-rs-3Fz" firstAttribute="centerX" secondItem="sHc-m0-K1U" secondAttribute="centerX" id="knF-BB-WOk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="background_grey"/>
+                        <constraints>
+                            <constraint firstItem="sHc-m0-K1U" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EYk-N0-1pp"/>
+                            <constraint firstItem="sHc-m0-K1U" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="fAc-Vh-xuX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sHc-m0-K1U" secondAttribute="trailing" id="rcs-ip-W3W"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="BgC-rs-3Fz" id="syE-6m-03o"/>
+                        <outlet property="imageView" destination="uys-4Z-fvo" id="bs9-t7-vCe"/>
+                        <outlet property="subtitleLabel" destination="AmU-Hb-TKd" id="cbT-eG-a0H"/>
+                        <outlet property="titleLabel" destination="FaQ-B6-iuH" id="duQ-OC-WKH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="80"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="network_error" width="36" height="36"/>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="background_grey">
+            <color red="0.95294117647058818" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grey300">
+            <color red="0.81199997663497925" green="0.83899998664855957" blue="0.86299997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="high_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="medium_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="0.47999998927116394" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

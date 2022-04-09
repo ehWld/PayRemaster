@@ -58,7 +58,10 @@ class MoneyHistoryDetailViewController: UIViewController {
         
         viewModel.$error
             .sink { [weak self] error in
-                print(error)
+                guard let error = error as? PayError else { return }
+                self?.showPayErrorAlert(error) {
+                    self?.viewModel.action(.resolveErrorDidTap)
+                }
             }
             .store(in: &cancellables)
     }

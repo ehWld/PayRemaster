@@ -8,10 +8,12 @@
 import Foundation
 
 enum PayError: Error {
-    case needToken
-    case expiredToken
-    case dataNotFound
-    case internalServerError
     case forceUpdate
     case inspectionTime
+    case dataNotFound
+    case needToken
+    case expiredToken
+    case internalServerError
+    case networkError
+    case unhandled
 }

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pay Error Alert View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="PayErrorAlertView" id="Y6W-OH-hqX" customClass="PayErrorAlertViewController" customModule="PayRemaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aa8-nI-9xG">
+                                <rect key="frame" x="32" y="338.5" width="350" height="229.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="network_error" translatesAutoresizingMaskIntoConstraints="NO" id="ifJ-ho-NRc">
+                                        <rect key="frame" x="157" y="26" width="36" height="36"/>
+                                        <color key="tintColor" name="red"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="2S5-Yi-bJp"/>
+                                            <constraint firstAttribute="height" constant="36" id="xbC-7w-jbX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tht-lf-bdz">
+                                        <rect key="frame" x="16" y="82" width="318" height="53.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="연결 상태가 좋지 않습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg5-Kc-pJx">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                <color key="textColor" name="high_emphasis"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="조금 뒤 다시 이용해주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz8-yi-KOi">
+                                                <rect key="frame" x="0.0" y="34" width="318" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" name="medium_emphasis"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvx-bo-eSQ">
+                                        <rect key="frame" x="16" y="161.5" width="318" height="52"/>
+                                        <color key="backgroundColor" name="yellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="ZJB-DI-uIM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="확인">
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <color key="baseForegroundColor" name="black"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonDidTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bUB-QG-lRO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="background"/>
+                                <constraints>
+                                    <constraint firstItem="Tht-lf-bdz" firstAttribute="top" secondItem="ifJ-ho-NRc" secondAttribute="bottom" constant="20" id="0AU-qV-BMl"/>
+                                    <constraint firstItem="Qvx-bo-eSQ" firstAttribute="top" secondItem="Tht-lf-bdz" secondAttribute="bottom" constant="26" id="GFX-Ef-BzM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tht-lf-bdz" secondAttribute="trailing" constant="16" id="MJT-4j-Poz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qvx-bo-eSQ" secondAttribute="bottom" constant="16" id="Mx8-Do-GcQ"/>
+                                    <constraint firstItem="Qvx-bo-eSQ" firstAttribute="leading" secondItem="Aa8-nI-9xG" secondAttribute="leading" constant="16" id="V0Z-e3-o6m"/>
+                                    <constraint firstItem="ifJ-ho-NRc" firstAttribute="top" secondItem="Aa8-nI-9xG" secondAttribute="top" constant="26" id="cIR-Cz-Add"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qvx-bo-eSQ" secondAttribute="trailing" constant="16" id="djQ-KG-CsU"/>
+                                    <constraint firstItem="ifJ-ho-NRc" firstAttribute="centerX" secondItem="Aa8-nI-9xG" secondAttribute="centerX" id="jts-e9-TFs"/>
+                                    <constraint firstItem="Tht-lf-bdz" firstAttribute="leading" secondItem="Aa8-nI-9xG" secondAttribute="leading" constant="16" id="pVV-F4-OJ1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Aa8-nI-9xG" secondAttribute="trailing" constant="32" id="2NZ-LQ-aWh"/>
+                            <constraint firstItem="Aa8-nI-9xG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="SxM-40-jA9"/>
+                            <constraint firstItem="Aa8-nI-9xG" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="ZLC-Hb-Aww"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertView" destination="Aa8-nI-9xG" id="qHl-iD-9E9"/>
+                        <outlet property="button" destination="Qvx-bo-eSQ" id="a44-ET-ucY"/>
+                        <outlet property="imageView" destination="ifJ-ho-NRc" id="bJP-Ua-DoC"/>
+                        <outlet property="subtitleLabel" destination="iz8-yi-KOi" id="15L-12-9va"/>
+                        <outlet property="titleLabel" destination="sg5-Kc-pJx" id="AYY-hR-aU1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="85"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="network_error" width="36" height="36"/>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black">
+            <color red="0.086000002920627594" green="0.097999997437000275" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="high_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="medium_emphasis">
+            <color red="0.024000000208616257" green="0.043000001460313797" blue="0.067000001668930054" alpha="0.47999998927116394" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellow">
+            <color red="1" green="0.92199999094009399" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

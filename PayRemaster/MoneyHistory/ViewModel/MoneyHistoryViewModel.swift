@@ -18,19 +18,19 @@ class MoneyHistoryViewModel {
         case didScrollToBottom
         case filterDidSelected(filter: HistoryType)
         case dateDidSelected(date: Date)
+        case resolveErrorDidTap
     }
     
     // Output
     @Published var histories: [History] = []
     @Published var filters: [HistoryType] = []
-    @Published var historyId: String? = nil
     @Published var onRequest: Bool = false
     @Published var error: Error?
     
     // Properties
     private var selectedFilter: HistoryType?
     private var selectedMonth: Int = Date().month
-    private var currentPage: Int = 0
+    private var nextPage: Int = 0
     private var isEndHistory: Bool = false
     private var cancellables: Set<AnyCancellable> = []
     
@@ -39,19 +39,22 @@ class MoneyHistoryViewModel {
         case .viewDidLoad:
             requestInitialData()
         case .didScrollToBottom:
-            requestData(for: currentPage + 1)
+            requestData(for: nextPage)
         case .filterDidSelected(let filter):
-            histories = []
+            histories.removeAll()
             isEndHistory = false
-            currentPage = 0
+            nextPage = 0
             selectedFilter = filter
-            requestData(for: currentPage)
+            requestData(for: nextPage)
         case .dateDidSelected(let date):
-            histories = []
+            histories.removeAll()
             isEndHistory = false
-            currentPage = 0
+            nextPage = 0
             selectedMonth = date.month
-            requestData(for: currentPage)
+            requestData(for: nextPage)
+        case .resolveErrorDidTap:
+            if filters.isEmpty { requestInitialData() }
+            else { requestData(for: nextPage) }
         }
     }
     
@@ -70,6 +73,7 @@ class MoneyHistoryViewModel {
                 self?.filters = filters
                 self?.histories = histories
                 if histories.isEmpty { self?.isEndHistory = true }
+                self?.nextPage += 1
             }
             .store(in: &cancellables)
     }
@@ -87,7 +91,7 @@ class MoneyHistoryViewModel {
             } receiveValue: { [weak self] histories in
                 guard !histories.isEmpty else { self?.isEndHistory = true; return }
                 self?.histories += histories
-                self?.currentPage += 1
+                self?.nextPage += 1
             }
             .store(in: &cancellables)
     }

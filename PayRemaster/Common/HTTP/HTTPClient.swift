@@ -17,6 +17,8 @@ class HTTPClient {
     
     enum Errors: LocalizedError {
         case badRequest
+        case badServerResponse
+        case unhandled
     }
     
     static let shared = HTTPClient()
@@ -39,16 +41,14 @@ class HTTPClient {
         }
         
         return URLSession.shared.dataTaskPublisher(for: urlReqest)
-            .tryMap { (data, response) -> Data in
-                //FIXME: - Error Handling
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    throw URLError(.badServerResponse)
+            .mapError { error -> Error in
+                if -1009 ... -1000 ~= error.errorCode {
+                    return PayError.networkError
                 }
-                guard httpResponse.statusCode == 200 else {
-                    print(httpResponse.statusCode)
-                    print(String(data: data, encoding: .utf8))
-                    throw URLError(.badServerResponse)
-                }
+                return error
+            }
+            .tryMap { [weak self] (data, response) -> Data in
+                try self?.handleError(maybeData: data, maybeHttpResponse: response)
                 return data
             }
             .eraseToAnyPublisher()
@@ -92,6 +92,29 @@ class HTTPClient {
         }
 
         return urlRequest
+    }
+    
+    private func handleError(maybeData: Data, maybeHttpResponse: URLResponse) throws {
+        guard let httpResponse = maybeHttpResponse as? HTTPURLResponse else {
+            throw Errors.badServerResponse
+        }
+        
+        let statusCode = httpResponse.statusCode
+        if 200..<300 ~= statusCode { return }
+        
+        guard let payErrorDTO = try? JSONDecoder().decode(PayErrorDTO.self, from: maybeData) else {
+            throw Errors.unhandled
+        }
+        
+        switch payErrorDTO.reason {
+        case "NEED_TOKEN": throw PayError.needToken
+        case "EXPIRED_TOKEN": throw PayError.expiredToken
+        case "DATA_NOT_FOUND": throw PayError.dataNotFound
+        case "INTERNAL_SERVER_ERROR": throw PayError.internalServerError
+        case "FORCE_UPDATE": throw PayError.forceUpdate
+        case "INSPECTION_TIME": throw PayError.inspectionTime
+        default: throw PayError.unhandled
+        }
     }
     
 }

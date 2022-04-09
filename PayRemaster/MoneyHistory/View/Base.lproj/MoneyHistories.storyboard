@@ -90,6 +90,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcf-1x-EeM">
+                                <rect key="frame" x="0.0" y="363.5" width="414" height="169.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty" translatesAutoresizingMaskIntoConstraints="NO" id="Imn-LB-F0k">
+                                        <rect key="frame" x="137" y="0.0" width="140" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="3DQ-eo-zt2"/>
+                                            <constraint firstAttribute="height" constant="140" id="gQO-0i-789"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 사용 내역이 없네요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgw-F8-Lf6">
+                                        <rect key="frame" x="16" y="150" width="382" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" name="medium_emphasis"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="background"/>
+                                <constraints>
+                                    <constraint firstItem="dgw-F8-Lf6" firstAttribute="leading" secondItem="Dcf-1x-EeM" secondAttribute="leading" constant="16" id="RGd-uO-I7E"/>
+                                    <constraint firstItem="Imn-LB-F0k" firstAttribute="top" secondItem="Dcf-1x-EeM" secondAttribute="top" id="Rfa-ZF-bbZ"/>
+                                    <constraint firstItem="dgw-F8-Lf6" firstAttribute="top" secondItem="Imn-LB-F0k" secondAttribute="bottom" constant="10" id="jKJ-Ys-N6N"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgw-F8-Lf6" secondAttribute="trailing" constant="16" id="rKo-AV-sEJ"/>
+                                    <constraint firstItem="Imn-LB-F0k" firstAttribute="centerX" secondItem="Dcf-1x-EeM" secondAttribute="centerX" id="vv2-hP-9ZX"/>
+                                    <constraint firstAttribute="bottom" secondItem="dgw-F8-Lf6" secondAttribute="bottom" id="x6l-0W-VM7"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7f-73-EKF" customClass="DateFilterView" customModule="PayRemaster" customModuleProvider="target">
                                 <rect key="frame" x="24" y="790" width="366" height="52"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,10 +128,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
+                            <constraint firstItem="Dcf-1x-EeM" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="1rF-7b-hzW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ujg-nU-J87" secondAttribute="bottom" id="41Z-aT-ZZs"/>
+                            <constraint firstItem="Dcf-1x-EeM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6dl-Mg-ZhJ"/>
                             <constraint firstItem="q7f-73-EKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Cgm-UL-VlB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q7f-73-EKF" secondAttribute="bottom" constant="20" id="NB4-eL-Qck"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q7f-73-EKF" secondAttribute="trailing" constant="24" id="S3I-3I-Oxd"/>
+                            <constraint firstItem="Dcf-1x-EeM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XMg-0i-Cml"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ujg-nU-J87" secondAttribute="trailing" id="boF-qS-Ha4"/>
                             <constraint firstItem="Ujg-nU-J87" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mK6-I5-22A"/>
                             <constraint firstItem="Ujg-nU-J87" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zbF-of-5rM"/>
@@ -113,6 +143,7 @@
                     <navigationItem key="navigationItem" id="p2L-27-5LJ"/>
                     <connections>
                         <outlet property="dateFilterView" destination="q7f-73-EKF" id="BeP-Ce-MiR"/>
+                        <outlet property="emptyView" destination="Dcf-1x-EeM" id="nkH-Kf-lkV"/>
                         <outlet property="filterTableView" destination="Ujg-nU-J87" id="oee-a8-uk3"/>
                     </connections>
                 </viewController>

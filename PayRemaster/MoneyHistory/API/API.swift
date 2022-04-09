@@ -18,8 +18,7 @@ class API {
             return Fail(error: error).eraseToAnyPublisher()
         }
         
-        guard let token = token,
-              token.isValid else {
+        guard let token = token, token.isValid else {
             return requestAccessToken()
         }
         return Just(token).tryMap{ $0 }.eraseToAnyPublisher()

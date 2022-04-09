@@ -14,6 +14,7 @@ class MoneyHistoryDetailViewModel {
     // Input
     enum Action {
         case viewDidLoad
+        case resolveErrorDidTap
     }
     
     // Output
@@ -33,6 +34,8 @@ class MoneyHistoryDetailViewModel {
     func action(_ action: Action) {
         switch action {
         case .viewDidLoad:
+            requestHistoryDetail()
+        case .resolveErrorDidTap:
             requestHistoryDetail()
         }
     }

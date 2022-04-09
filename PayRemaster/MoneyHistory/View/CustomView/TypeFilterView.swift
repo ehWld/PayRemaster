@@ -33,6 +33,18 @@ class TypeFilterView: UIView {
         return button
     }()
     
+    lazy var gradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        let endColor = UIColor.background!.cgColor
+        let startColor = UIColor.background!.withAlphaComponent(0.0).cgColor
+        layer.frame = expandButton.bounds
+        layer.colors = [startColor, endColor]
+        layer.startPoint = .init(x: 0.0, y: 0.5)
+        layer.endPoint = .init(x: 0.2, y: 0.5)
+        expandButton.layer.insertSublayer(layer, at: 0)
+        return layer
+    }()
+    
     // MARK: - Properties
     
     let minHeight: CGFloat = 72
@@ -74,6 +86,11 @@ class TypeFilterView: UIView {
         configureUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = expandButton.bounds
+    }
+    
     // MARK: - Setup
     
     func configure(with filters: [HistoryType], selected: Int = 0) {
@@ -85,27 +102,26 @@ class TypeFilterView: UIView {
     
     private func configureUI() {
         backgroundColor = .background
+        addSubview(collectionView)
+        addSubview(expandButton)
+        configureCollectionView()
         
         expandButton.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(expandButton)
         NSLayoutConstraint.activate([
             expandButton.widthAnchor.constraint(equalToConstant: 68),
             expandButton.heightAnchor.constraint(equalToConstant: 72),
             expandButton.topAnchor.constraint(equalTo: self.topAnchor),
             expandButton.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-        
-        configureCollectionView()
     }
     
     private func configureCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            collectionView.trailingAnchor.constraint(equalTo: expandButton.leadingAnchor)
+            collectionView.trailingAnchor.constraint(equalTo: expandButton.leadingAnchor, constant: 20)
         ])
         collectionView.collectionViewLayout = horizontalLayout
         

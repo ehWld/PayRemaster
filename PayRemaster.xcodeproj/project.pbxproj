@@ -50,6 +50,11 @@
 		A4D8E05B27FDFAF300C4D030 /* VerticalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05A27FDFAF300C4D030 /* VerticalFlowLayout.swift */; };
 		A4D8E05D27FDFC7100C4D030 /* TypeFilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E05C27FDFC7100C4D030 /* TypeFilterTableView.swift */; };
 		A4D8E06127FEF13400C4D030 /* PayErrorAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E06027FEF13400C4D030 /* PayErrorAlertViewController.swift */; };
+		A4D8E0632801C42E00C4D030 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E0622801C42E00C4D030 /* UIViewController+Extension.swift */; };
+		A4D8E0652801C92400C4D030 /* PayErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E0642801C92400C4D030 /* PayErrorViewController.swift */; };
+		A4D8E0672801C93600C4D030 /* PayErrorAlertView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D8E0662801C93600C4D030 /* PayErrorAlertView.storyboard */; };
+		A4D8E0692801C93E00C4D030 /* PayErrorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4D8E0682801C93E00C4D030 /* PayErrorView.storyboard */; };
+		A4D8E06B2801EE4600C4D030 /* PayErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D8E06A2801EE4600C4D030 /* PayErrorDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +114,11 @@
 		A4D8E05A27FDFAF300C4D030 /* VerticalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowLayout.swift; sourceTree = "<group>"; };
 		A4D8E05C27FDFC7100C4D030 /* TypeFilterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFilterTableView.swift; sourceTree = "<group>"; };
 		A4D8E06027FEF13400C4D030 /* PayErrorAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayErrorAlertViewController.swift; sourceTree = "<group>"; };
+		A4D8E0622801C42E00C4D030 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		A4D8E0642801C92400C4D030 /* PayErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayErrorViewController.swift; sourceTree = "<group>"; };
+		A4D8E0662801C93600C4D030 /* PayErrorAlertView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PayErrorAlertView.storyboard; sourceTree = "<group>"; };
+		A4D8E0682801C93E00C4D030 /* PayErrorView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PayErrorView.storyboard; sourceTree = "<group>"; };
+		A4D8E06A2801EE4600C4D030 /* PayErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayErrorDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +202,7 @@
 				A4D8E03C27FC758400C4D030 /* UIImage+Extension.swift */,
 				A4D8E04627FCB3A100C4D030 /* UIView+Extension.swift */,
 				A4D8E05727FDC82B00C4D030 /* Int+Extension.swift */,
+				A4D8E0622801C42E00C4D030 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -312,7 +323,11 @@
 			isa = PBXGroup;
 			children = (
 				A4D8E05527FDC4A300C4D030 /* PayError.swift */,
+				A4D8E06A2801EE4600C4D030 /* PayErrorDTO.swift */,
 				A4D8E06027FEF13400C4D030 /* PayErrorAlertViewController.swift */,
+				A4D8E0642801C92400C4D030 /* PayErrorViewController.swift */,
+				A4D8E0662801C93600C4D030 /* PayErrorAlertView.storyboard */,
+				A4D8E0682801C93E00C4D030 /* PayErrorView.storyboard */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -400,8 +415,10 @@
 			files = (
 				A40AA69527F32A4600754E4F /* LaunchScreen.storyboard in Resources */,
 				A4D8E05027FCD32E00C4D030 /* DateFilterView.xib in Resources */,
+				A4D8E0672801C93600C4D030 /* PayErrorAlertView.storyboard in Resources */,
 				A4D8DFE227F59B0800C4D030 /* MoneyHistoryHeaderView.xib in Resources */,
 				A4D8DFAC27F4402D00C4D030 /* Images.xcassets in Resources */,
+				A4D8E0692801C93E00C4D030 /* PayErrorView.storyboard in Resources */,
 				A4D8E04327FCAE2700C4D030 /* MoneyHistoryDetail.storyboard in Resources */,
 				A40AA69227F32A4600754E4F /* Colors.xcassets in Resources */,
 				A40AA69027F32A4500754E4F /* MoneyHistories.storyboard in Resources */,
@@ -426,7 +443,10 @@
 				A4D8DFD427F54AAD00C4D030 /* MoneyHistoryDataSource.swift in Sources */,
 				A4D8DFFB27F8532D00C4D030 /* AccessToken.swift in Sources */,
 				A4D8E00427F99A5000C4D030 /* HistoryDetailDTO.swift in Sources */,
+				A4D8E0652801C92400C4D030 /* PayErrorViewController.swift in Sources */,
+				A4D8E0632801C42E00C4D030 /* UIViewController+Extension.swift in Sources */,
 				A4D8DFE027F59AF900C4D030 /* MoneyHistoryHeaderView.swift in Sources */,
+				A4D8E06B2801EE4600C4D030 /* PayErrorDTO.swift in Sources */,
 				A4D8E04527FCAE3C00C4D030 /* MoneyHistoryDetailViewController.swift in Sources */,
 				A4D8E02E27FA18F100C4D030 /* TypeFilterView.swift in Sources */,
 				A40AA68D27F32A4500754E4F /* MoneyHistoriesViewController.swift in Sources */,

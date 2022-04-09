@@ -14,6 +14,7 @@ class MoneyHistoriesViewController: UIViewController {
     
     @IBOutlet weak var filterTableView: TypeFilterTableView!
     @IBOutlet weak var dateFilterView: DateFilterView!
+    @IBOutlet weak var emptyView: UIView!
     
     // MARK: - Properties
 
@@ -40,8 +41,8 @@ class MoneyHistoriesViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
 
         filterTableView.register(MoneyHistoryHeaderView.nib, forHeaderFooterViewReuseIdentifier: MoneyHistoryHeaderView.identifier)
-        
         filterTableView.delegate = self
+        emptyView.isHidden = true
     }
     
     private func bind() {
@@ -55,14 +56,17 @@ class MoneyHistoriesViewController: UIViewController {
         dateFilterView.$currentDate
             .dropFirst()
             .sink { [weak self] date in
-                print("date: \(date.month)")
                 self?.viewModel.action(.dateDidSelected(date: date))
             }
             .store(in: &cancellables)
         
         viewModel.$histories
             .sink { [weak self] histories in
-                print(histories.count)
+                print(histories)
+                if histories.isEmpty {
+                    self?.emptyView.isHidden = false
+                }
+                else { self?.emptyView.isHidden = true }
                 self?.dataSource.apply(histories)
             }
             .store(in: &cancellables)
@@ -76,7 +80,10 @@ class MoneyHistoriesViewController: UIViewController {
         viewModel.$error
             .compactMap { $0 }
             .sink { [weak self] error in
-                print(error)
+                guard let error = error as? PayError else { return }
+                self?.showPayErrorAlert(error) {
+                    self?.viewModel.action(.resolveErrorDidTap)
+                }
             }
             .store(in: &cancellables)
     }
