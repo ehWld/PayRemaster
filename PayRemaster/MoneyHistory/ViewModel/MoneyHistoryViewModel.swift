@@ -24,6 +24,7 @@ class MoneyHistoryViewModel {
     // Output
     @Published var histories: [History] = []
     @Published var filters: [HistoryType] = []
+    @Published var isEmptyData: Bool = false
     @Published var onRequest: Bool = false
     @Published var error: Error?
     
@@ -72,7 +73,8 @@ class MoneyHistoryViewModel {
             } receiveValue: { [weak self] histories, filters in
                 self?.filters = filters
                 self?.histories = histories
-                if histories.isEmpty { self?.isEndHistory = true }
+                self?.isEndHistory = histories.isEmpty
+                self?.isEmptyData = histories.isEmpty
                 self?.nextPage += 1
             }
             .store(in: &cancellables)
@@ -89,8 +91,9 @@ class MoneyHistoryViewModel {
                 guard case .failure(let error) = completion else { return }
                 self?.error = error
             } receiveValue: { [weak self] histories in
-                guard !histories.isEmpty else { self?.isEndHistory = true; return }
                 self?.histories += histories
+                self?.isEndHistory = histories.isEmpty
+                self?.isEmptyData = self?.histories.isEmpty ?? true
                 self?.nextPage += 1
             }
             .store(in: &cancellables)

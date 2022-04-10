@@ -30,6 +30,11 @@ class MoneyHistoriesViewController: UIViewController {
         viewModel.action(.viewDidLoad)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.extendedLayoutIncludesOpaqueBars = true
+    }
+    
     // MARK: - Setup
     
     private func configureUI() {
@@ -63,10 +68,6 @@ class MoneyHistoriesViewController: UIViewController {
         viewModel.$histories
             .sink { [weak self] histories in
                 print(histories)
-                if histories.isEmpty {
-                    self?.emptyView.isHidden = false
-                }
-                else { self?.emptyView.isHidden = true }
                 self?.dataSource.apply(histories)
             }
             .store(in: &cancellables)
@@ -74,6 +75,12 @@ class MoneyHistoriesViewController: UIViewController {
         viewModel.$filters
             .sink { [weak self] filters in
                 self?.filterTableView.configureFilter(with: filters)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isEmptyData
+            .sink { [weak self] isEmptyData in
+                self?.emptyView.isHidden = !isEmptyData
             }
             .store(in: &cancellables)
         
